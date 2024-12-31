@@ -1,59 +1,43 @@
-import styled from 'styled-components';
 import M8Logo from './components/m8-logo';
-
-const Title = styled.h1`
-  color: var(--text-primary);
-  text-align: center;
-  font-family: 'Cal Sans', sans-serif;
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 102%;
-
-  .subtitle {
-    color: var(--text-accent);
-  }
-`;
-
-const Footer = styled.p`
-  color: var(--text-secondary);
-  margin-top: 20px;
-  margin-bottom: 80px;
-  text-align: center;
-  font-family: 'Figtree', sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  overflow: hidden;
-
-  a {
-    font-weight: 700;
-  }
-`;
-
-const Container = styled.div`
-  display: flex;
-  height: 100dvh;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-top: 58px;
-`;
+import ArtistsCard from './components/artists-card';
 
 const App = () => {
   return (
-    <Container>
-      <Title>
-        Créer une bannière <M8Logo />
-        Gentle Mates,
-        <br />
-        <span className="subtitle">en quelques clics</span>
-      </Title>
-      <Footer>
-        Outil 100% gratuit. Développé par <a>@ZzAK_K</a>, designé par{' '}
-        <a>@reaiucas</a>.
-      </Footer>
-    </Container>
+    <div className="min-h-screen flex flex-col bg-background-primary">
+      <header className="flex justify-center w-full font-cal mt-10">
+        <h1 className="text-foreground-primary text-center text-3xl font-bold leading-10">
+          Créer une bannière <M8Logo />
+          Gentle Mates, <br />{' '}
+          <span className="text-foreground-accent">en quelques clics</span>
+        </h1>
+      </header>
+
+      <main className="flex-1 flex gap-4 my-14 mx-10">
+        <ArtistsCard />
+
+        <div className="w-1/2 bg-green-100 rounded-lg p-4">
+          {/* Grand rectangle central */}
+        </div>
+
+        <div className="w-1/3 bg-blue-100 rounded-lg p-4">
+          {/* Rectangle moyen droite */}
+        </div>
+      </main>
+
+      <footer className="p-4 text-center text-foreground-secondary">
+        <p>
+          Outil 100% gratuit. Développé par{' '}
+          <a href="#" className="font-semibold">
+            @ZzAK_K
+          </a>
+          , designé par{' '}
+          <a href="#" className="font-semibold">
+            @reaiucas
+          </a>
+          .
+        </p>
+      </footer>
+    </div>
   );
 };
 

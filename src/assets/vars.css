@@ -1,13 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: var(--bg-primary);
 }
 
 :root {
   --bg-primary: #f5f8fb;
   --bg-secondary: #ffffff;
+
+  --border-color: rgba(67, 67, 67, 0.2);
 
   --text-primary: #0f0f0f;
   --text-secondary: #bbc5d4;
