@@ -9,6 +9,7 @@ type PreviewCardProps = {
   username: string;
   role: string;
   onDownload: () => void;
+  onCopy: () => void;
 };
 
 const PreviewCard = (props: PreviewCardProps) => {
@@ -56,41 +57,36 @@ const PreviewCard = (props: PreviewCardProps) => {
       <h2 className="text-foreground-primary text-lg font-bold font-cal text-center pb-4">
         Prévisualisation
       </h2>
-      <div className="flex justify-center items-center">
+      <div className={`flex justify-center items-center h-[440px]`}>
         <Stage
-          width={CANVAS_WIDTH}
-          height={CANVAS_HEIGHT}
+          width={getImageDimensions().width}
+          height={getImageDimensions().height}
           style={{ margin: 'auto' }}
         >
           <Layer>
-            <Image
-              image={image}
-              {...getImageDimensions()}
-              x={(CANVAS_WIDTH - getImageDimensions().width) / 2}
-              y={(CANVAS_HEIGHT - getImageDimensions().height) / 2}
-            />
+            <Image image={image} {...getImageDimensions()} />
             {isLoaded && (
               <>
                 <Text
                   text={props.username}
-                  x={586}
-                  y={198}
+                  x={622}
+                  y={90}
                   fontSize={36}
                   fontFamily="TuskerGrotesk"
                   fill="#1e1d1e"
-                  width={200}
+                  width={165}
                   align="right"
                   wrap="none"
                 />
                 <Text
                   text={props.role}
-                  x={584}
-                  y={236}
+                  x={636}
+                  y={128}
                   fontSize={13}
                   fontFamily="Helvetica"
                   fontVariant="bold"
                   fill="#1e1d1e"
-                  width={200}
+                  width={150}
                   fontStyle="italic"
                   align="right"
                   wrap="none"
@@ -102,7 +98,7 @@ const PreviewCard = (props: PreviewCardProps) => {
       </div>
       <div className="flex justify-between items-center bg-black/15 absolute bottom-0 left-0 right-0 px-5 pt-6 pb-4 rounded-b-lg">
         <p className="text-foreground-primary text-sm">
-          Taille : <span className="font-bold">1440x480</span>
+          Taille : <span className="font-bold">1500x500</span>
         </p>
         <div className="flex gap-2 text-sm">
           <Button
@@ -115,7 +111,7 @@ const PreviewCard = (props: PreviewCardProps) => {
             variant="secondary"
             icon={<CopyIcon />}
             text="Copier"
-            onClick={() => {}}
+            onClick={props.onCopy}
           />
         </div>
       </div>

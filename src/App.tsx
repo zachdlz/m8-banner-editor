@@ -13,12 +13,35 @@ const App = () => {
     const canvas = document.querySelector('canvas');
     if (!canvas) return;
 
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = 1500;
+    tempCanvas.height = 500;
+    const tempCtx = tempCanvas.getContext('2d');
+
+    if (!tempCtx) return;
+    tempCtx.drawImage(canvas, 0, 0, 1500, 500);
+
     const link = document.createElement('a');
     link.download = `m8-banner.png`;
-    link.href = canvas.toDataURL('image/png');
+    link.href = tempCanvas.toDataURL('image/png');
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+
+  const handleCopy = async () => {
+    const canvas = document.querySelector('canvas');
+    if (!canvas) return;
+
+    const dataURL = canvas.toDataURL('image/png');
+    const response = await fetch(dataURL);
+    const blob = await response.blob();
+
+    await navigator.clipboard.write([
+      new ClipboardItem({
+        [blob.type]: blob,
+      }),
+    ]);
   };
 
   return (
@@ -37,6 +60,7 @@ const App = () => {
           username={username}
           role={role}
           onDownload={handleDownload}
+          onCopy={handleCopy}
         />
         <PlaygroundCard
           username={username}
@@ -54,11 +78,11 @@ const App = () => {
         </a>
         <p>
           Outil 100% gratuit. Développé par{' '}
-          <a href="#" className="font-semibold">
+          <a href="https://x.com/ZzAK_K" className="font-semibold">
             @ZzAK_K
           </a>
           , designé par{' '}
-          <a href="#" className="font-semibold">
+          <a href="https://x.com/reaiucas" className="font-semibold">
             @reaiucas
           </a>
           .
