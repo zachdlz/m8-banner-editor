@@ -96,7 +96,7 @@ const PreviewCard = (props: PreviewCardProps) => {
           </Layer>
         </Stage>
       </div>
-      <div className="flex justify-between items-center bg-black/15 absolute bottom-0 left-0 right-0 px-5 pt-6 pb-4 rounded-b-lg">
+      <div className="flex justify-between items-center bg-black/15 absolute bottom-0 left-0 right-0 px-5 py-5 rounded-b-lg">
         <p className="text-foreground-primary text-sm">
           Taille : <span className="font-bold">1500x500</span>
         </p>
