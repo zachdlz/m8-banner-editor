@@ -73,7 +73,10 @@ const App = () => {
       </main>
 
       <footer className="p-4 text-center text-foreground-secondary font-figtree text-sm">
-        <a href="#" className="flex justify-center mb-1">
+        <a
+          href="https://github.com/zachdlz/m8-banner-editor"
+          className="flex justify-center mb-1"
+        >
           <GithubIcon />
         </a>
         <p>
