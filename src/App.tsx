@@ -54,7 +54,7 @@ const App = () => {
         </h1>
       </header>
 
-      <main className="flex gap-4 my-12 m-auto w-[1440px] h-[640px]">
+      <main className="flex gap-4 m-auto w-[1440px] h-[640px]">
         <ArtistsCard />
         <PreviewCard
           username={username}
