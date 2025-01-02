@@ -7,6 +7,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'TuskerGrotesk';
+  src: url('./fonts/TuskerGrotesk-4800Super.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

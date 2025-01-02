@@ -1,6 +1,12 @@
 import { EraseIcon } from '../../assets/icons';
+import Button from '../buttons';
 
-const PlaygroundCard = () => {
+type PlaygroundCardProps = {
+  onTextChange: (text: string) => void;
+  onRoleChange: (role: string) => void;
+};
+
+const PlaygroundCard = (props: PlaygroundCardProps) => {
   return (
     <div className="w-1/4 bg-white border border-border rounded-lg px-5 py-4 flex flex-col gap-3 font-figtree">
       <h2 className="text-foreground-primary text-lg font-bold font-figtree">
@@ -16,6 +22,7 @@ const PlaygroundCard = () => {
             id="pseudo"
             className="w-full h-9 border border-border rounded-md p-2 text-sm focus:outline-none focus:ring-2 focus:ring-foreground-accent"
             placeholder="SOUEEZIE"
+            onChange={(e) => props.onTextChange(e.target.value)}
           />
         </div>
         <div className="flex flex-col gap-0.5">
@@ -27,14 +34,12 @@ const PlaygroundCard = () => {
             id="role"
             className="w-full h-9 border border-border rounded-md p-2 text-sm focus:outline-none focus:ring-2 focus:ring-foreground-accent"
             placeholder="CEO OF LEAK"
+            onChange={(e) => props.onRoleChange(e.target.value)}
           />
         </div>
       </div>
       <div className="flex justify-end mt-auto">
-        <button className="flex items-center gap-3 text-white bg-foreground-accent rounded-md px-3 py-2 text-sm w-full">
-          <EraseIcon />
-          Annuler les modifications
-        </button>
+        <Button icon={<EraseIcon />} text="Annuler les modifications" />
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import M8Logo from './components/m8-logo';
 import ArtistsCard from './components/artists-card';
 import PlaygroundCard from './components/playground-card';
@@ -5,6 +6,9 @@ import PreviewCard from './components/preview-card.png';
 import GithubIcon from './assets/icons/github-icon';
 
 const App = () => {
+  const [text, setText] = useState('');
+  const [role, setRole] = useState('');
+
   return (
     <div className="min-h-screen flex flex-col bg-background-primary">
       <header className="flex justify-center w-full font-cal mt-14">
@@ -15,10 +19,10 @@ const App = () => {
         </h1>
       </header>
 
-      <main className="flex-1 flex gap-4 my-12 mx-10">
+      <main className="flex-1 flex gap-4 my-12 mx-auto w-[1440px] h-[640px]">
         <ArtistsCard />
-        <PreviewCard />
-        <PlaygroundCard />
+        <PreviewCard text={text} role={role} />
+        <PlaygroundCard onTextChange={setText} onRoleChange={setRole} />
       </main>
 
       <footer className="p-4 text-center text-foreground-secondary font-figtree text-sm">
