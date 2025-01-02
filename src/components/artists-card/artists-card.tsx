@@ -6,7 +6,7 @@ const ArtistsCard = () => {
       <h2 className="text-foreground-primary text-lg font-bold font-cal">
         Artistes
       </h2>
-      <div className="flex flex-col gap-2.5">
+      <div className="flex flex-col gap-1">
         <h3 className="text-foreground-primary text-md">~ Gentle Mates</h3>
         <div className="flex items-center gap-2">
           <div className="rounded-lg p-[1px] border-2 border-foreground-accent">
