@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@font-face {
+  font-family: 'Cal Sans';
+  src: url('./fonts/CalSans-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-primary: #f5f8fb;
+  --bg-secondary: #ffffff;
+
+  --border-color: rgba(67, 67, 67, 0.2);
+
+  --text-primary: #0f0f0f;
+  --text-secondary: #bbc5d4;
+  --text-accent: #33c100;
+}

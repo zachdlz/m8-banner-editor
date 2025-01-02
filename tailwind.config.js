@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./src/**/*.{js,ts,jsx,tsx}', './index.html'],
   theme: {
     extend: {
       colors: {
@@ -15,10 +15,13 @@ export default {
         },
         border: 'var(--border-color)',
       },
-      fontFamily: {
-        cal: ['Cal Sans', 'sans-serif'],
-        figtree: ['Figtree', 'sans-serif'],
+      backgroundImage: {
+        grid: 'url(/src/assets/images/grid-pattern.png)',
       },
+    },
+    fontFamily: {
+      cal: ['"Cal Sans"', 'sans-serif'],
+      figtree: ['"Figtree"', 'sans-serif'],
     },
   },
   plugins: [],
