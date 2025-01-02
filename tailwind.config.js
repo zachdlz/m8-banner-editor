@@ -12,6 +12,7 @@ export default {
           primary: 'var(--text-primary)',
           secondary: 'var(--text-secondary)',
           accent: 'var(--text-accent)',
+          accentHover: 'var(--text-accent-hover)',
         },
         border: 'var(--border-color)',
       },
