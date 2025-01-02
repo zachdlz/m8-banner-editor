@@ -6,8 +6,20 @@ import PreviewCard from './components/preview-card.png';
 import GithubIcon from './assets/icons/github-icon';
 
 const App = () => {
-  const [text, setText] = useState('');
+  const [username, setUsername] = useState('');
   const [role, setRole] = useState('');
+
+  const handleDownload = () => {
+    const canvas = document.querySelector('canvas');
+    if (!canvas) return;
+
+    const link = document.createElement('a');
+    link.download = `m8-banner.png`;
+    link.href = canvas.toDataURL('image/png');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-background-primary">
@@ -21,8 +33,19 @@ const App = () => {
 
       <main className="flex-1 flex gap-4 my-12 mx-auto w-[1440px] h-[640px]">
         <ArtistsCard />
-        <PreviewCard text={text} role={role} />
-        <PlaygroundCard onTextChange={setText} onRoleChange={setRole} />
+        <PreviewCard
+          username={username}
+          role={role}
+          onDownload={handleDownload}
+        />
+        <PlaygroundCard
+          username={username}
+          role={role}
+          onUsernameChange={(newUsername) =>
+            setUsername(newUsername.toUpperCase())
+          }
+          onRoleChange={(newRole) => setRole(newRole.toUpperCase())}
+        />
       </main>
 
       <footer className="p-4 text-center text-foreground-secondary font-figtree text-sm">

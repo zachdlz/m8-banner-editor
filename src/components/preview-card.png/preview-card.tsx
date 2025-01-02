@@ -6,8 +6,9 @@ import banner from '../../assets/images/banner.png';
 import useImage from 'use-image';
 
 type PreviewCardProps = {
-  text: string;
+  username: string;
   role: string;
+  onDownload: () => void;
 };
 
 const PreviewCard = (props: PreviewCardProps) => {
@@ -71,7 +72,7 @@ const PreviewCard = (props: PreviewCardProps) => {
             {isLoaded && (
               <>
                 <Text
-                  text={props.text}
+                  text={props.username}
                   x={586}
                   y={198}
                   fontSize={36}
@@ -108,8 +109,14 @@ const PreviewCard = (props: PreviewCardProps) => {
             variant="primary"
             icon={<DownloadIcon />}
             text="Télécharger"
+            onClick={props.onDownload}
           />
-          <Button variant="secondary" icon={<CopyIcon />} text="Copier" />
+          <Button
+            variant="secondary"
+            icon={<CopyIcon />}
+            text="Copier"
+            onClick={() => {}}
+          />
         </div>
       </div>
     </div>

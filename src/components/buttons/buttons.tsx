@@ -1,7 +1,8 @@
 type ButtonProps = {
   icon?: React.ReactNode;
   text?: string;
-  variant?: 'primary' | 'secondary';
+  variant: 'primary' | 'secondary';
+  onClick: () => void;
 };
 
 const Button = (props: ButtonProps) => {
@@ -12,6 +13,7 @@ const Button = (props: ButtonProps) => {
           ? 'bg-foreground-accent text-white'
           : 'bg-white text-foreground-primary'
       }`}
+      onClick={props.onClick}
     >
       {props.icon}
       {props.text}
