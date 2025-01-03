@@ -59,7 +59,7 @@ const App = () => {
   return (
     <div className="h-screen flex flex-col">
       <header className="flex justify-center w-full font-cal mt-14">
-        <h1 className="text-foreground-primary text-center text-3xl font-bold leading-10">
+        <h1 className="text-foreground-primary text-center text-4xl font-bold leading-10">
           Créer une bannière{' '}
           <span className="whitespace-nowrap">
             <M8Logo />
