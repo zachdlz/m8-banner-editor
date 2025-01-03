@@ -70,7 +70,7 @@ const App = () => {
         </h1>
       </header>
 
-      <main className="flex flex-col xl:flex-row gap-4 m-auto py-10 px-4 w-screen max-w-[1440px] xl:h-[700px]">
+      <main className="flex flex-col xl:flex-row gap-6 xl:gap-4 m-auto py-10 px-4 w-screen max-w-[1440px] xl:h-[700px]">
         <ArtistsCard
           selectedBanner={selectedBanner}
           onBannerChange={setSelectedBanner}

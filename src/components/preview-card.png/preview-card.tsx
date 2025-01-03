@@ -77,48 +77,50 @@ const PreviewCard = (props: PreviewCardProps) => {
         Prévisualisation
       </h2>
       <div className="preview-container flex-grow flex justify-center items-center my-8 mx-4 sm:mx-24 max-w-full">
-        <Stage
-          width={getImageDimensions().width}
-          height={getImageDimensions().height}
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            maxWidth: '100%',
-          }}
-        >
-          <Layer>
-            <Image image={image} {...getImageDimensions()} />
-            {isLoaded && (
-              <>
-                <Text
-                  text={props.username}
-                  x={getImageDimensions().width * 0.778}
-                  y={getImageDimensions().height * 0.34}
-                  fontSize={getImageDimensions().width * 0.045}
-                  fontFamily="TuskerGrotesk"
-                  fill="#1e1d1e"
-                  width={getImageDimensions().width * 0.206}
-                  align="right"
-                  wrap="none"
-                />
-                <Text
-                  text={props.role}
-                  x={getImageDimensions().width * 0.795}
-                  y={getImageDimensions().height * 0.48}
-                  fontSize={getImageDimensions().width * 0.016}
-                  fontFamily="Helvetica"
-                  fontVariant="bold"
-                  fill="#1e1d1e"
-                  width={getImageDimensions().width * 0.188}
-                  fontStyle="italic"
-                  align="right"
-                  wrap="none"
-                />
-              </>
-            )}
-          </Layer>
-        </Stage>
+        <div className="rounded-lg overflow-hidden shadow-sm">
+          <Stage
+            width={getImageDimensions().width}
+            height={getImageDimensions().height}
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              maxWidth: '100%',
+            }}
+          >
+            <Layer>
+              <Image image={image} {...getImageDimensions()} />
+              {isLoaded && (
+                <>
+                  <Text
+                    text={props.username}
+                    x={getImageDimensions().width * 0.778}
+                    y={getImageDimensions().height * 0.34}
+                    fontSize={getImageDimensions().width * 0.045}
+                    fontFamily="TuskerGrotesk"
+                    fill="#1e1d1e"
+                    width={getImageDimensions().width * 0.206}
+                    align="right"
+                    wrap="none"
+                  />
+                  <Text
+                    text={props.role}
+                    x={getImageDimensions().width * 0.795}
+                    y={getImageDimensions().height * 0.48}
+                    fontSize={getImageDimensions().width * 0.016}
+                    fontFamily="Helvetica"
+                    fontVariant="bold"
+                    fill="#1e1d1e"
+                    width={getImageDimensions().width * 0.188}
+                    fontStyle="italic"
+                    align="right"
+                    wrap="none"
+                  />
+                </>
+              )}
+            </Layer>
+          </Stage>
+        </div>
       </div>
       <div className="flex justify-between items-center bg-black/15 px-5 py-5 rounded-b-lg mt-auto">
         <p className="text-foreground-primary text-sm">
