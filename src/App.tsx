@@ -63,7 +63,7 @@ const App = () => {
 
   return (
     <>
-      <div className="h-screen flex flex-col">
+      <div className="h-screen flex flex-col ">
         <header className="flex justify-center w-full font-cal mt-14">
           <h1 className="text-foreground-primary text-center text-4xl font-bold leading-10">
             Créer une bannière{' '}
@@ -76,7 +76,7 @@ const App = () => {
           </h1>
         </header>
 
-        <main className="flex flex-col xl:flex-row gap-6 xl:gap-4 m-auto py-10 px-4 w-screen max-w-[1440px] xl:h-[700px]">
+        <main className="flex flex-col xl:flex-row gap-6 xl:gap-4 m-auto px-6 md:px-10 py-14 xl:py-20 2xl:py-10 w-screen xl:max-w-[1840px] xl:h-[900px]">
           <ArtistsCard
             selectedBanner={selectedBanner}
             onBannerChange={setSelectedBanner}

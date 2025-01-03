@@ -73,7 +73,7 @@ const PreviewCard = (props: PreviewCardProps) => {
   const isLoaded = fontLoaded && imageStatus === 'loaded';
 
   return (
-    <div className="w-full xl:w-[80%] border border-transparent rounded-lg bg-grid bg-repeat bg-center bg-cover relative font-figtree flex flex-col h-full overflow-x-hidden">
+    <div className="order-1 xl:order-none w-full xl:w-[80%] border border-transparent rounded-lg bg-grid bg-repeat bg-center bg-cover relative font-figtree flex flex-col h-full overflow-x-hidden">
       <h2 className="text-foreground-primary text-lg font-bold font-cal text-center pt-4">
         Prévisualisation
       </h2>
