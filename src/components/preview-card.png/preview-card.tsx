@@ -17,8 +17,6 @@ const PreviewCard = (props: PreviewCardProps) => {
   const [fontLoaded, setFontLoaded] = useState(false);
   const [containerWidth, setContainerWidth] = useState(0);
 
-  console.log(props.selectedBanner);
-
   const BASE_WIDTH = 1500;
   const BASE_HEIGHT = 500;
   const ASPECT_RATIO = BASE_WIDTH / BASE_HEIGHT;
