@@ -15,21 +15,35 @@ type PreviewCardProps = {
 const PreviewCard = (props: PreviewCardProps) => {
   const [image, imageStatus] = useImage(banner);
   const [fontLoaded, setFontLoaded] = useState(false);
+  const [containerWidth, setContainerWidth] = useState(0);
 
-  const CANVAS_WIDTH = 800;
-  const CANVAS_HEIGHT = 480;
+  const BASE_WIDTH = 1500;
+  const BASE_HEIGHT = 500;
+  const ASPECT_RATIO = BASE_WIDTH / BASE_HEIGHT;
+
+  useEffect(() => {
+    const updateDimensions = () => {
+      const container = document.querySelector('.preview-container');
+      if (container) {
+        setContainerWidth(container.clientWidth);
+      }
+    };
+
+    updateDimensions();
+
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
 
   const getImageDimensions = () => {
-    if (!image) return { width: 0, height: 0 };
+    if (!image || !containerWidth) return { width: 0, height: 0 };
 
-    const ratio = Math.min(
-      CANVAS_WIDTH / image.width,
-      CANVAS_HEIGHT / image.height,
-    );
+    const width = containerWidth;
+    const height = width / ASPECT_RATIO;
 
     return {
-      width: image.width * ratio,
-      height: image.height * ratio,
+      width,
+      height,
     };
   };
 
@@ -53,15 +67,19 @@ const PreviewCard = (props: PreviewCardProps) => {
   const isLoaded = fontLoaded && imageStatus === 'loaded';
 
   return (
-    <div className="w-full border border-transparent rounded-lg p-4 bg-grid bg-repeat bg-center bg-cover relative font-figtree">
+    <div className="w-full sm:w-[65%] border border-transparent rounded-lg pt-4 bg-grid bg-repeat bg-center bg-cover relative font-figtree">
       <h2 className="text-foreground-primary text-lg font-bold font-cal text-center pb-4">
         Prévisualisation
       </h2>
-      <div className={`flex justify-center items-center h-[440px]`}>
+      <div className="preview-container flex justify-center items-center">
         <Stage
           width={getImageDimensions().width}
           height={getImageDimensions().height}
-          style={{ margin: 'auto' }}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
         >
           <Layer>
             <Image image={image} {...getImageDimensions()} />
@@ -69,24 +87,24 @@ const PreviewCard = (props: PreviewCardProps) => {
               <>
                 <Text
                   text={props.username}
-                  x={622}
-                  y={90}
-                  fontSize={36}
+                  x={getImageDimensions().width * 0.778}
+                  y={getImageDimensions().height * 0.188}
+                  fontSize={getImageDimensions().width * 0.045}
                   fontFamily="TuskerGrotesk"
                   fill="#1e1d1e"
-                  width={165}
+                  width={getImageDimensions().width * 0.206}
                   align="right"
                   wrap="none"
                 />
                 <Text
                   text={props.role}
-                  x={636}
-                  y={128}
-                  fontSize={13}
+                  x={getImageDimensions().width * 0.795}
+                  y={getImageDimensions().height * 0.267}
+                  fontSize={getImageDimensions().width * 0.016}
                   fontFamily="Helvetica"
                   fontVariant="bold"
                   fill="#1e1d1e"
-                  width={150}
+                  width={getImageDimensions().width * 0.188}
                   fontStyle="italic"
                   align="right"
                   wrap="none"
@@ -96,7 +114,7 @@ const PreviewCard = (props: PreviewCardProps) => {
           </Layer>
         </Stage>
       </div>
-      <div className="flex justify-between items-center bg-black/15 absolute bottom-0 left-0 right-0 px-5 py-5 rounded-b-lg">
+      <div className="flex justify-between items-center bg-black/15 bottom-0 left-0 right-0 px-5 py-5 rounded-b-lg">
         <p className="text-foreground-primary text-sm">
           Taille : <span className="font-bold">1500x500</span>
         </p>

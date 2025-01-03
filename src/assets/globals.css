@@ -23,6 +23,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  background-color: var(--bg-primary);
+}
 
 :root {
   --bg-primary: #f5f8fb;

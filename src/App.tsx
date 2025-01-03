@@ -45,7 +45,7 @@ const App = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col bg-background-primary">
+    <div className="h-screen flex flex-col">
       <header className="flex justify-center w-full font-cal mt-14">
         <h1 className="text-foreground-primary text-center text-3xl font-bold leading-10">
           Créer une bannière <M8Logo />
@@ -54,7 +54,7 @@ const App = () => {
         </h1>
       </header>
 
-      <main className="flex gap-4 m-auto w-[1440px] h-[640px]">
+      <main className="flex flex-col xl:flex-row gap-4 m-auto py-10 px-4 w-screen max-w-[1440px] xl:h-[700px]">
         <ArtistsCard />
         <PreviewCard
           username={username}
