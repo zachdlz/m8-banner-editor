@@ -22,9 +22,9 @@ const App = () => {
     bannerNumber: 1,
   });
 
-  const handleDownload = () => {
-    const canvas = document.querySelector('canvas');
-    if (!canvas) return;
+  const drawSizedImage = () => {
+    const sourceCanvas = document.querySelector('canvas');
+    if (!sourceCanvas) return;
 
     const tempCanvas = document.createElement('canvas');
     tempCanvas.width = 1500;
@@ -32,7 +32,14 @@ const App = () => {
     const tempCtx = tempCanvas.getContext('2d');
 
     if (!tempCtx) return;
-    tempCtx.drawImage(canvas, 0, 0, 1500, 500);
+
+    tempCtx.drawImage(sourceCanvas, 0, 0, 1500, 500);
+    return tempCanvas;
+  };
+
+  const handleDownload = () => {
+    const tempCanvas = drawSizedImage();
+    if (!tempCanvas) return;
 
     const link = document.createElement('a');
     link.download = `m8-banner.png`;
@@ -43,22 +50,29 @@ const App = () => {
   };
 
   const handleCopy = async () => {
-    const canvas = document.querySelector('canvas');
-    if (!canvas) return;
+    const tempCanvas = drawSizedImage();
+    if (!tempCanvas) return;
 
-    const dataURL = canvas.toDataURL('image/png');
-    const response = await fetch(dataURL);
-    const blob = await response.blob();
+    try {
+      const tmpCanvas = tempCanvas.toDataURL('image/png');
+      const data = await fetch(tmpCanvas);
+      const blob = await data.blob();
 
-    await navigator.clipboard.write([
-      new ClipboardItem({
-        [blob.type]: blob,
-      }),
-    ]);
+      await navigator.clipboard.write([
+        new ClipboardItem({
+          [blob.type]: blob,
+        }),
+      ]);
 
-    toast.success('Bannière copiée dans le presse-papiers', {
-      position: 'bottom-center',
-    });
+      toast.success('Bannière copiée dans le presse-papiers', {
+        position: 'bottom-center',
+      });
+    } catch (error) {
+      console.error('Erreur de copie:', error);
+      toast.error('Erreur lors de la copie', {
+        position: 'bottom-center',
+      });
+    }
   };
 
   return (
