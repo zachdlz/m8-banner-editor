@@ -54,6 +54,7 @@ const App = () => {
     if (!tempCanvas) return;
 
     try {
+      // Copy method for Apple devices
       if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
         const img = document.createElement('img');
         img.src = tempCanvas.toDataURL('image/png');
@@ -72,6 +73,7 @@ const App = () => {
 
         document.body.removeChild(div);
       } else {
+        // New copy method
         const tmpCanvas = tempCanvas.toDataURL('image/png');
         const data = await fetch(tmpCanvas);
         const blob = await data.blob();
