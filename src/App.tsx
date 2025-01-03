@@ -67,8 +67,7 @@ const App = () => {
       toast.success('Bannière copiée dans le presse-papiers', {
         position: 'bottom-center',
       });
-    } catch (error) {
-      console.error('Erreur de copie:', error);
+    } catch {
       toast.error('Erreur lors de la copie', {
         position: 'bottom-center',
       });
