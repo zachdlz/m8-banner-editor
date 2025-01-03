@@ -7,17 +7,17 @@ import useImage from 'use-image';
 type PreviewCardProps = {
   username: string;
   role: string;
-  bannerPath: string;
+  selectedBanner: string;
   onDownload: () => void;
   onCopy: () => void;
 };
 
 const PreviewCard = (props: PreviewCardProps) => {
-  const [image, imageStatus] = useImage(
-    new URL(props.bannerPath, import.meta.url).href,
-  );
+  const [image, imageStatus] = useImage(props.selectedBanner);
   const [fontLoaded, setFontLoaded] = useState(false);
   const [containerWidth, setContainerWidth] = useState(0);
+
+  console.log(props.selectedBanner);
 
   const BASE_WIDTH = 1500;
   const BASE_HEIGHT = 500;

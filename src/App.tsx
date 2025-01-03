@@ -5,6 +5,11 @@ import PlaygroundCard from './components/playground-card';
 import PreviewCard from './components/preview-card.png';
 import GithubIcon from './assets/icons/github-icon';
 
+const m8_1Banner = new URL('assets/images/artists/m8/m8_1.png', import.meta.url)
+  .href;
+const m8_2Banner = new URL('assets/images/artists/m8/m8_2.png', import.meta.url)
+  .href;
+
 const App = () => {
   const [username, setUsername] = useState('');
   const [role, setRole] = useState('');
@@ -73,7 +78,9 @@ const App = () => {
         <PreviewCard
           username={username}
           role={role}
-          bannerPath={`../../assets/images/artists/${selectedBanner.artist}/${selectedBanner.artist}_${selectedBanner.bannerNumber}.png`}
+          selectedBanner={
+            selectedBanner.bannerNumber === 1 ? m8_1Banner : m8_2Banner
+          }
           onDownload={handleDownload}
           onCopy={handleCopy}
         />
