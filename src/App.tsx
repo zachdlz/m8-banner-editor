@@ -8,6 +8,13 @@ import GithubIcon from './assets/icons/github-icon';
 const App = () => {
   const [username, setUsername] = useState('');
   const [role, setRole] = useState('');
+  const [selectedBanner, setSelectedBanner] = useState<{
+    artist: string;
+    bannerNumber: number;
+  }>({
+    artist: 'm8',
+    bannerNumber: 1,
+  });
 
   const handleDownload = () => {
     const canvas = document.querySelector('canvas');
@@ -59,10 +66,14 @@ const App = () => {
       </header>
 
       <main className="flex flex-col xl:flex-row gap-4 m-auto py-10 px-4 w-screen max-w-[1440px] xl:h-[700px]">
-        <ArtistsCard />
+        <ArtistsCard
+          selectedBanner={selectedBanner}
+          onBannerChange={setSelectedBanner}
+        />
         <PreviewCard
           username={username}
           role={role}
+          bannerPath={`../../assets/images/artists/${selectedBanner.artist}/${selectedBanner.bannerNumber}.png`}
           onDownload={handleDownload}
           onCopy={handleCopy}
         />

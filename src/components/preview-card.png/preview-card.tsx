@@ -2,18 +2,20 @@ import { useEffect, useState } from 'react';
 import Button from '../buttons';
 import { CopyIcon, DownloadIcon } from '../../assets/icons';
 import { Layer, Stage, Image, Text } from 'react-konva';
-import banner from '../../assets/images/banner.png';
 import useImage from 'use-image';
 
 type PreviewCardProps = {
   username: string;
   role: string;
+  bannerPath: string;
   onDownload: () => void;
   onCopy: () => void;
 };
 
 const PreviewCard = (props: PreviewCardProps) => {
-  const [image, imageStatus] = useImage(banner);
+  const [image, imageStatus] = useImage(
+    new URL(props.bannerPath, import.meta.url).href,
+  );
   const [fontLoaded, setFontLoaded] = useState(false);
   const [containerWidth, setContainerWidth] = useState(0);
 
