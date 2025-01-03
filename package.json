@@ -13,6 +13,7 @@
     "konva": "^9.3.18",
     "react": "19.0.0",
     "react-dom": "19.0.0",
+    "react-hot-toast": "^2.5.1",
     "react-konva": "^19.0.1",
     "use-image": "^1.1.1"
   },
