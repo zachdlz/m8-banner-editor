@@ -73,7 +73,7 @@ const App = () => {
         <PreviewCard
           username={username}
           role={role}
-          bannerPath={`../../assets/images/artists/${selectedBanner.artist}/${selectedBanner.bannerNumber}.png`}
+          bannerPath={`../../assets/images/artists/${selectedBanner.artist}/${selectedBanner.artist}_${selectedBanner.bannerNumber}.png`}
           onDownload={handleDownload}
           onCopy={handleCopy}
         />
