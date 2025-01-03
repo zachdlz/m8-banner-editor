@@ -54,15 +54,33 @@ const App = () => {
     if (!tempCanvas) return;
 
     try {
-      const tmpCanvas = tempCanvas.toDataURL('image/png');
-      const data = await fetch(tmpCanvas);
-      const blob = await data.blob();
+      if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+        const img = document.createElement('img');
+        img.src = tempCanvas.toDataURL('image/png');
 
-      await navigator.clipboard.write([
-        new ClipboardItem({
-          [blob.type]: blob,
-        }),
-      ]);
+        const div = document.createElement('div');
+        div.contentEditable = 'true';
+        div.appendChild(img);
+        document.body.appendChild(div);
+
+        const range = document.createRange();
+        range.selectNodeContents(div);
+        const selection = window.getSelection();
+        selection?.removeAllRanges();
+        selection?.addRange(range);
+        document.execCommand('copy');
+
+        document.body.removeChild(div);
+      } else {
+        const tmpCanvas = tempCanvas.toDataURL('image/png');
+        const data = await fetch(tmpCanvas);
+        const blob = await data.blob();
+        await navigator.clipboard.write([
+          new ClipboardItem({
+            [blob.type]: blob,
+          }),
+        ]);
+      }
 
       toast.success('Bannière copiée dans le presse-papiers', {
         position: 'bottom-center',
