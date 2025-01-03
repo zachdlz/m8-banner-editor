@@ -25,7 +25,11 @@ const PreviewCard = (props: PreviewCardProps) => {
     const updateDimensions = () => {
       const container = document.querySelector('.preview-container');
       if (container) {
-        setContainerWidth(container.clientWidth);
+        const maxWidth = Math.min(
+          container.clientWidth,
+          window.innerWidth * 0.9,
+        );
+        setContainerWidth(maxWidth);
       }
     };
 
@@ -38,7 +42,8 @@ const PreviewCard = (props: PreviewCardProps) => {
   const getImageDimensions = () => {
     if (!image || !containerWidth) return { width: 0, height: 0 };
 
-    const width = containerWidth;
+    const maxWidth = Math.min(containerWidth, window.innerWidth * 0.9);
+    const width = maxWidth;
     const height = width / ASPECT_RATIO;
 
     return {
@@ -67,11 +72,11 @@ const PreviewCard = (props: PreviewCardProps) => {
   const isLoaded = fontLoaded && imageStatus === 'loaded';
 
   return (
-    <div className="w-full sm:w-[65%] border border-transparent rounded-lg pt-4 bg-grid bg-repeat bg-center bg-cover relative font-figtree">
-      <h2 className="text-foreground-primary text-lg font-bold font-cal text-center pb-4">
+    <div className="w-full xl:w-[80%] border border-transparent rounded-lg bg-grid bg-repeat bg-center bg-cover relative font-figtree flex flex-col h-full">
+      <h2 className="text-foreground-primary text-lg font-bold font-cal text-center pt-4">
         Prévisualisation
       </h2>
-      <div className="preview-container flex justify-center items-center">
+      <div className="preview-container flex-grow flex justify-center items-center my-10 mx-4 sm:mx-28">
         <Stage
           width={getImageDimensions().width}
           height={getImageDimensions().height}
@@ -88,7 +93,7 @@ const PreviewCard = (props: PreviewCardProps) => {
                 <Text
                   text={props.username}
                   x={getImageDimensions().width * 0.778}
-                  y={getImageDimensions().height * 0.188}
+                  y={getImageDimensions().height * 0.34}
                   fontSize={getImageDimensions().width * 0.045}
                   fontFamily="TuskerGrotesk"
                   fill="#1e1d1e"
@@ -99,7 +104,7 @@ const PreviewCard = (props: PreviewCardProps) => {
                 <Text
                   text={props.role}
                   x={getImageDimensions().width * 0.795}
-                  y={getImageDimensions().height * 0.267}
+                  y={getImageDimensions().height * 0.48}
                   fontSize={getImageDimensions().width * 0.016}
                   fontFamily="Helvetica"
                   fontVariant="bold"
@@ -114,7 +119,7 @@ const PreviewCard = (props: PreviewCardProps) => {
           </Layer>
         </Stage>
       </div>
-      <div className="flex justify-between items-center bg-black/15 bottom-0 left-0 right-0 px-5 py-5 rounded-b-lg">
+      <div className="flex justify-between items-center bg-black/15 px-5 py-5 rounded-b-lg mt-auto">
         <p className="text-foreground-primary text-sm">
           Taille : <span className="font-bold">1500x500</span>
         </p>

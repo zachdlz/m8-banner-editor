@@ -10,7 +10,7 @@ type PlaygroundCardProps = {
 
 const PlaygroundCard = (props: PlaygroundCardProps) => {
   return (
-    <div className="min-w-[260px] bg-white border border-border rounded-lg px-5 pt-4 pb-5 flex flex-col gap-3 font-figtree">
+    <div className="min-w-[20%] bg-white border border-border rounded-lg px-5 pt-4 pb-5 flex flex-col gap-3 font-figtree">
       <h2 className="text-foreground-primary text-lg font-bold font-figtree">
         Playground
       </h2>
