@@ -42,7 +42,7 @@ const App = () => {
     if (!tempCanvas) return;
 
     const link = document.createElement('a');
-    link.download = `m8-banner.png`;
+    link.download = `m8-${username}.png`;
     link.href = tempCanvas.toDataURL('image/png');
     document.body.appendChild(link);
     link.click();
