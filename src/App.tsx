@@ -137,16 +137,28 @@ const App = () => {
           <a
             href="https://github.com/zachdlz/m8-banner-editor"
             className="flex justify-center mb-1"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <GithubIcon />
           </a>
           <p>
             Outil 100% gratuit. Développé par{' '}
-            <a href="https://x.com/ZzAK_K" className="font-semibold">
+            <a
+              href="https://x.com/ZzAK_K"
+              className="font-semibold"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               @ZzAK_K
             </a>
             , designé par{' '}
-            <a href="https://x.com/reaiucas" className="font-semibold">
+            <a
+              href="https://x.com/reaiucas"
+              className="font-semibold"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               @reaiucas
             </a>
             .
