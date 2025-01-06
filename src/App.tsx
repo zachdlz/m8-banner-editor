@@ -6,7 +6,6 @@ import PlaygroundCard from './components/playground-card';
 import PreviewCard from './components/preview-card.png';
 import GithubIcon from './assets/icons/github-icon';
 import toast, { Toaster } from 'react-hot-toast';
-import { Analytics } from '@vercel/analytics/react';
 
 const m8_1Banner = new URL('assets/images/artists/m8/m8_1.png', import.meta.url)
   .href;
@@ -179,7 +178,6 @@ const App = () => {
           </p>
         </footer>
       </div>
-      <Analytics />
       <Toaster />
     </>
   );
