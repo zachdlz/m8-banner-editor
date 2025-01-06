@@ -8,7 +8,7 @@ type ArtistsCardProps = {
 
 const ArtistsCard = (props: ArtistsCardProps) => {
   return (
-    <div className="order-3 xl:order-none min-w-[12%] bg-white border border-border rounded-lg px-5 py-4 flex flex-col gap-3 font-figtree">
+    <div className="order-3 xl:order-none min-w-[12%] bg-white border border-border rounded-lg px-5 pt-4 pb-5 flex flex-col gap-3 font-figtree">
       <h2 className="text-foreground-primary text-lg font-bold font-cal">
         Artistes
       </h2>

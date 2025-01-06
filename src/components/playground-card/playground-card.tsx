@@ -42,7 +42,7 @@ const PlaygroundCard = (props: PlaygroundCardProps) => {
           />
         </div>
       </div>
-      <div className="flex justify-end mt-auto">
+      <div className="flex justify-end mt-4 lg:mt-auto">
         <Button
           variant="primary"
           icon={<EraseIcon />}
