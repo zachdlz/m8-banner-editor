@@ -4,7 +4,6 @@ import TGSLogo from './components/tgs-logo';
 import ArtistsCard from './components/artists-card';
 import PlaygroundCard from './components/playground-card';
 import PreviewCard from './components/preview-card.png';
-import GithubIcon from './assets/icons/github-icon';
 import toast, { Toaster } from 'react-hot-toast';
 
 const m8_1Banner = new URL('assets/images/artists/m8/m8_1.png', import.meta.url)
@@ -147,14 +146,6 @@ const App = () => {
         </main>
 
         <footer className="p-4 text-center text-foreground-secondary font-figtree text-sm">
-          <a
-            href="https://github.com/zachdlz/m8-banner-editor"
-            className="flex justify-center mb-1"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <GithubIcon />
-          </a>
           <p>
             Outil 100% gratuit. Développé par{' '}
             <a
