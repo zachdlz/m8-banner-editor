@@ -72,6 +72,34 @@ const PreviewCard = (props: PreviewCardProps) => {
 
   const isLoaded = fontLoaded && imageStatus === 'loaded';
 
+  const calculateFontSize = (
+    text: string,
+    maxWidth: number,
+    initialSize: number,
+  ) => {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    if (!context) return initialSize;
+
+    let fontSize = initialSize;
+    context.font = `${fontSize}px TuskerGrotesk`;
+    let textWidth = context.measureText(text).width;
+
+    while (textWidth > maxWidth && fontSize > 1) {
+      fontSize -= 1;
+      context.font = `${fontSize}px TuskerGrotesk`;
+      textWidth = context.measureText(text).width;
+    }
+
+    return fontSize;
+  };
+
+  const getUsernameFontSize = () => {
+    const maxTextWidth = getImageDimensions().width * 0.206;
+    const initialFontSize = getImageDimensions().width * 0.045;
+    return calculateFontSize(props.username, maxTextWidth, initialFontSize);
+  };
+
   return (
     <div className="order-1 xl:order-none w-full xl:w-[80%] border border-transparent rounded-lg bg-grid bg-repeat bg-center bg-cover relative font-figtree flex flex-col h-full overflow-x-hidden">
       <h2 className="text-foreground-primary text-lg font-bold font-cal text-center pt-4">
@@ -99,8 +127,12 @@ const PreviewCard = (props: PreviewCardProps) => {
                     <Text
                       text={props.username}
                       x={getImageDimensions().width * 0.778}
-                      y={getImageDimensions().height * 0.34}
-                      fontSize={getImageDimensions().width * 0.045}
+                      y={
+                        getImageDimensions().height * 0.34 +
+                        (getImageDimensions().width * 0.045 -
+                          getUsernameFontSize())
+                      }
+                      fontSize={getUsernameFontSize()}
                       fontFamily="TuskerGrotesk"
                       fill="#1e1d1e"
                       width={getImageDimensions().width * 0.206}
