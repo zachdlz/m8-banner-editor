@@ -7,6 +7,7 @@ export default {
         background: {
           primary: 'var(--bg-primary)',
           secondary: 'var(--bg-secondary)',
+          accent: 'var(--bg-accent)',
         },
         foreground: {
           primary: 'var(--text-primary)',

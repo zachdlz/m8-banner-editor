@@ -30,6 +30,7 @@ body {
 :root {
   --bg-primary: #f5f8fb;
   --bg-secondary: #ffffff;
+  --bg-accent: rgba(51, 193, 0, 0.2);
 
   --border-color: rgba(67, 67, 67, 0.2);
 

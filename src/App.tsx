@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import M8Logo from './components/m8-logo';
+import TGSLogo from './components/tgs-logo';
 import ArtistsCard from './components/artists-card';
 import PlaygroundCard from './components/playground-card';
 import PreviewCard from './components/preview-card.png';
@@ -97,8 +98,8 @@ const App = () => {
   return (
     <>
       <div className="h-screen flex flex-col ">
-        <header className="flex justify-center w-full font-cal mt-14">
-          <h1 className="text-foreground-primary text-center text-4xl font-bold leading-10">
+        <header className="flex justify-center flex-col w-full mt-14">
+          <h1 className="text-foreground-primary text-center text-4xl font-bold leading-10 font-cal">
             Créer une bannière{' '}
             <span className="whitespace-nowrap">
               <M8Logo />
@@ -107,6 +108,12 @@ const App = () => {
             <br />
             <span className="text-foreground-accent">en quelques clics</span>
           </h1>
+          <p className="text-foreground-accent text-xs text-center mt-5 py-1.5 px-3 bg-background-accent rounded-full w-fit mx-auto">
+            Powered by
+            <span className="font-semibold ml-2">
+              <TGSLogo /> The Green Suits
+            </span>
+          </p>
         </header>
 
         <main className="flex flex-col xl:flex-row gap-6 xl:gap-4 m-auto px-6 md:px-10 py-14 xl:py-20 2xl:py-10 w-screen xl:max-w-[1840px] xl:h-[900px]">
