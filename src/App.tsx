@@ -108,12 +108,18 @@ const App = () => {
             <br />
             <span className="text-foreground-accent">en quelques clics</span>
           </h1>
-          <p className="text-foreground-accent text-xs text-center mt-5 py-1.5 px-3 bg-background-accent rounded-full w-fit mx-auto">
-            Powered by
-            <span className="font-semibold ml-2">
-              <TGSLogo /> The Green Suits
-            </span>
-          </p>
+          <a
+            href="https://thegreensuits.fr"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <p className="text-foreground-accent text-xs text-center mt-5 py-1.5 px-3 bg-background-accent rounded-full w-fit mx-auto">
+              Powered by
+              <span className="font-semibold ml-2">
+                <TGSLogo /> The Green Suits
+              </span>
+            </p>
+          </a>
         </header>
 
         <main className="flex flex-col xl:flex-row gap-6 xl:gap-4 m-auto px-6 md:px-10 py-14 xl:py-20 2xl:py-10 w-screen xl:max-w-[1840px] xl:h-[900px]">
