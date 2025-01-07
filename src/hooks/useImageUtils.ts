@@ -1,10 +1,20 @@
 import toast from 'react-hot-toast';
+import { Artist } from '../utils/types';
 
 type UseImageUtilsProps = {
   username?: string;
 };
 
 const useImageUtils = ({ username }: UseImageUtilsProps = {}) => {
+  const getBannerUrl = (artist: Artist | undefined) => {
+    if (!artist) return '';
+
+    return new URL(
+      `../assets/images/banners/${artist.name}_${artist.bannerNumber}.png`,
+      import.meta.url,
+    ).href;
+  };
+
   const drawSizedImage = () => {
     const sourceCanvas = document.querySelector('canvas');
     if (!sourceCanvas) return;
@@ -80,6 +90,7 @@ const useImageUtils = ({ username }: UseImageUtilsProps = {}) => {
   return {
     handleCopy,
     handleDownload,
+    getBannerUrl,
   };
 };
 

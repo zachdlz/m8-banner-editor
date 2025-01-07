@@ -7,21 +7,19 @@ import PlaygroundCard from './components/playground-card';
 import PreviewCard from './components/preview-card.png';
 import Header from './components/header';
 import Footer from './components/footer';
-
-const m8_1Banner = new URL('assets/images/artists/m8/m8_1.png', import.meta.url)
-  .href;
-const m8_2Banner = new URL('assets/images/artists/m8/m8_2.png', import.meta.url)
-  .href;
+import { Artist } from './utils/types';
 
 const App = () => {
   const [username, setUsername] = useState('');
   const [role, setRole] = useState('');
-  const [selectedBanner, setSelectedBanner] = useState({
-    artist: 'm8',
+  const [selectedArtist, setSelectedArtist] = useState<Artist>({
+    name: 'm8',
     bannerNumber: 1,
   });
 
-  const { handleDownload, handleCopy } = useImageUtils({ username });
+  const { handleDownload, handleCopy, getBannerUrl } = useImageUtils({
+    username,
+  });
 
   return (
     <>
@@ -30,15 +28,13 @@ const App = () => {
 
         <main className="flex flex-col xl:flex-row gap-6 xl:gap-4 m-auto px-6 md:px-10 py-14 xl:py-20 2xl:py-10 w-screen xl:max-w-[1840px] xl:h-[900px]">
           <ArtistsCard
-            selectedBanner={selectedBanner}
-            onBannerChange={setSelectedBanner}
+            selectedArtist={selectedArtist}
+            onArtistChange={setSelectedArtist}
           />
           <PreviewCard
             username={username}
             role={role}
-            selectedBanner={
-              selectedBanner.bannerNumber === 1 ? m8_1Banner : m8_2Banner
-            }
+            bannerUrl={getBannerUrl(selectedArtist)}
             onDownload={handleDownload}
             onCopy={handleCopy}
           />

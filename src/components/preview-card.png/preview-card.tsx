@@ -8,13 +8,13 @@ import { Loader } from '../loader';
 type PreviewCardProps = {
   username: string;
   role: string;
-  selectedBanner: string;
+  bannerUrl: string;
   onDownload: () => void;
   onCopy: () => void;
 };
 
 const PreviewCard = (props: PreviewCardProps) => {
-  const [image, imageStatus] = useImage(props.selectedBanner);
+  const [image, imageStatus] = useImage(props.bannerUrl);
   const [fontLoaded, setFontLoaded] = useState(false);
   const [containerWidth, setContainerWidth] = useState(0);
 

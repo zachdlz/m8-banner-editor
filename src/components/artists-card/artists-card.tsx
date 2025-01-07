@@ -1,9 +1,10 @@
-import m8_1Icon from '../../assets/images/artists/m8/m8_preview1.png';
-import m8_2Icon from '../../assets/images/artists/m8/m8_preview2.png';
+import m8_1Icon from '../../assets/images/covers/m8_1.png';
+import m8_2Icon from '../../assets/images/covers/m8_2.png';
+import { Artist } from '../../utils/types';
 
 type ArtistsCardProps = {
-  onBannerChange: (banner: { artist: string; bannerNumber: number }) => void;
-  selectedBanner: { artist: string; bannerNumber: number };
+  onArtistChange: (artist: Artist) => void;
+  selectedArtist: Artist;
 };
 
 const ArtistsCard = (props: ArtistsCardProps) => {
@@ -17,8 +18,8 @@ const ArtistsCard = (props: ArtistsCardProps) => {
         <div className="flex items-center gap-2">
           <div
             className={`rounded-lg p-[1px] ${
-              props.selectedBanner?.artist === 'm8' &&
-              props.selectedBanner?.bannerNumber === 1
+              props.selectedArtist?.name === 'm8' &&
+              props.selectedArtist?.bannerNumber === 1
                 ? 'border-2 border-foreground-accent'
                 : ''
             }`}
@@ -28,14 +29,14 @@ const ArtistsCard = (props: ArtistsCardProps) => {
               alt="Gentle Mates"
               className="w-12 h-[46px] cursor-pointer rounded-md"
               onClick={() =>
-                props.onBannerChange({ artist: 'm8', bannerNumber: 1 })
+                props.onArtistChange({ name: 'm8', bannerNumber: 1 })
               }
             />
           </div>
           <div
             className={`rounded-lg p-[1px] ${
-              props.selectedBanner?.artist === 'm8' &&
-              props.selectedBanner?.bannerNumber === 2
+              props.selectedArtist?.name === 'm8' &&
+              props.selectedArtist?.bannerNumber === 2
                 ? 'border-2 border-foreground-accent'
                 : ''
             }`}
@@ -45,7 +46,7 @@ const ArtistsCard = (props: ArtistsCardProps) => {
               alt="Gentle Mates"
               className="w-12 h-[46px] cursor-pointer rounded-md"
               onClick={() =>
-                props.onBannerChange({ artist: 'm8', bannerNumber: 2 })
+                props.onArtistChange({ name: 'm8', bannerNumber: 2 })
               }
             />
           </div>
