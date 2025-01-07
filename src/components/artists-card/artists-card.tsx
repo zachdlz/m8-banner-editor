@@ -7,6 +7,8 @@ type ArtistsCardProps = {
   selectedArtist: Artist;
 };
 
+// TODO: import dynamically artists and images
+
 const ArtistsCard = (props: ArtistsCardProps) => {
   return (
     <div className="order-3 xl:order-none min-w-[164px] bg-white border border-border rounded-lg px-5 pt-4 pb-5 flex flex-col gap-3 font-figtree">
