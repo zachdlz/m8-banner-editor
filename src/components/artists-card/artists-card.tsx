@@ -19,11 +19,11 @@ const ArtistsCard = (props: ArtistsCardProps) => {
         <h3 className="text-foreground-primary text-md">~ Gentle Mates</h3>
         <div className="flex items-center gap-2">
           <div
-            className={`rounded-lg p-[1px] ${
+            className={`rounded-lg p-[1px] border-2 ${
               props.selectedArtist?.name === 'm8' &&
               props.selectedArtist?.bannerNumber === 1
-                ? 'border-2 border-foreground-accent'
-                : ''
+                ? 'border-foreground-accent'
+                : 'border-transparent'
             }`}
           >
             <img
@@ -36,11 +36,11 @@ const ArtistsCard = (props: ArtistsCardProps) => {
             />
           </div>
           <div
-            className={`rounded-lg p-[1px] ${
+            className={`rounded-lg p-[1px] border-2 ${
               props.selectedArtist?.name === 'm8' &&
               props.selectedArtist?.bannerNumber === 2
-                ? 'border-2 border-foreground-accent'
-                : ''
+                ? 'border-foreground-accent'
+                : 'border-transparent'
             }`}
           >
             <img

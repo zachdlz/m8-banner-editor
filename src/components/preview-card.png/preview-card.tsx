@@ -17,6 +17,10 @@ const PreviewCard = (props: PreviewCardProps) => {
   const [image, imageStatus] = useImage(props.bannerUrl);
   const [fontLoaded, setFontLoaded] = useState(false);
   const [containerWidth, setContainerWidth] = useState(0);
+  const [lastValidDimensions, setLastValidDimensions] = useState({
+    width: 0,
+    height: 0,
+  });
 
   const BASE_WIDTH = 1500;
   const BASE_HEIGHT = 500;
@@ -41,17 +45,26 @@ const PreviewCard = (props: PreviewCardProps) => {
   }, []);
 
   const getImageDimensions = () => {
-    if (!image || !containerWidth) return { width: 0, height: 0 };
+    if (!containerWidth) return lastValidDimensions;
 
     const maxWidth = Math.min(containerWidth, window.innerWidth * 0.9);
     const width = maxWidth;
     const height = width / ASPECT_RATIO;
 
-    return {
-      width,
-      height,
-    };
+    return { width, height };
   };
+
+  useEffect(() => {
+    const dimensions = getImageDimensions();
+    if (dimensions.width !== 0 && dimensions.height !== 0) {
+      setLastValidDimensions(dimensions);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [containerWidth]);
+
+  const currentDimensions = getImageDimensions();
+  const displayHeight =
+    currentDimensions.height || lastValidDimensions.height || BASE_HEIGHT;
 
   useEffect(() => {
     const font = new FontFace(
@@ -112,10 +125,16 @@ const PreviewCard = (props: PreviewCardProps) => {
         Prévisualisation
       </h2>
       <div className="preview-container flex-grow flex justify-center items-center my-8 mx-4 sm:mx-24 max-w-full">
-        {imageStatus === 'loading' ? (
-          <Loader />
-        ) : (
-          <div className="rounded-lg overflow-hidden shadow-sm">
+        <div
+          className="rounded-lg overflow-hidden shadow-sm w-full flex justify-center items-center"
+          style={{ height: `${displayHeight}px` }}
+        >
+          {imageStatus === 'loading' ? (
+            <Loader
+              width={getImageDimensions().width}
+              height={getImageDimensions().height}
+            />
+          ) : (
             <Stage
               width={getImageDimensions().width}
               height={getImageDimensions().height}
@@ -162,8 +181,8 @@ const PreviewCard = (props: PreviewCardProps) => {
                 )}
               </Layer>
             </Stage>
-          </div>
-        )}
+          )}
+        </div>
       </div>
       <div className="flex justify-between items-center bg-black/15 px-5 py-5 rounded-b-lg mt-auto">
         <p className="text-foreground-primary text-sm">
