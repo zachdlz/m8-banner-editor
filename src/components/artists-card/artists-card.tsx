@@ -1,13 +1,10 @@
-import m8_1Icon from '../../assets/images/covers/m8_1.png';
-import m8_2Icon from '../../assets/images/covers/m8_2.png';
 import { Artist } from '../../utils/types';
+import { ARTISTS } from './artists';
 
 type ArtistsCardProps = {
   onArtistChange: (artist: Artist) => void;
   selectedArtist: Artist;
 };
-
-// TODO: import dynamically artists and images
 
 const ArtistsCard = (props: ArtistsCardProps) => {
   return (
@@ -15,44 +12,39 @@ const ArtistsCard = (props: ArtistsCardProps) => {
       <h2 className="text-foreground-primary text-lg font-bold font-cal">
         Artistes
       </h2>
-      <div className="flex flex-col gap-1">
-        <h3 className="text-foreground-primary text-md">~ Gentle Mates</h3>
-        <div className="flex items-center gap-2">
-          <div
-            className={`rounded-lg p-[1px] border-2 ${
-              props.selectedArtist?.name === 'm8' &&
-              props.selectedArtist?.bannerNumber === 1
-                ? 'border-foreground-accent'
-                : 'border-transparent'
-            }`}
-          >
-            <img
-              src={m8_1Icon}
-              alt="Gentle Mates"
-              className="w-12 h-[46px] cursor-pointer rounded-md"
-              onClick={() =>
-                props.onArtistChange({ name: 'm8', bannerNumber: 1 })
-              }
-            />
+      <div>
+        {ARTISTS.map((artistGroup) => (
+          <div key={artistGroup.group} className="flex flex-col gap-1">
+            <h3 className="text-foreground-primary text-md">
+              ~ {artistGroup.label}
+            </h3>
+            <div className="flex items-center gap-2">
+              {artistGroup.banners.map((banner) => (
+                <div
+                  key={`${artistGroup.group}-${banner.number}`}
+                  className={`rounded-lg p-[1px] border-2 ${
+                    props.selectedArtist?.name === artistGroup.group &&
+                    props.selectedArtist?.bannerNumber === banner.number
+                      ? 'border-foreground-accent'
+                      : 'border-transparent'
+                  }`}
+                >
+                  <img
+                    src={banner.icon}
+                    alt={artistGroup.group}
+                    className="w-12 h-[46px] cursor-pointer rounded-md"
+                    onClick={() =>
+                      props.onArtistChange({
+                        name: artistGroup.group,
+                        bannerNumber: banner.number,
+                      })
+                    }
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-          <div
-            className={`rounded-lg p-[1px] border-2 ${
-              props.selectedArtist?.name === 'm8' &&
-              props.selectedArtist?.bannerNumber === 2
-                ? 'border-foreground-accent'
-                : 'border-transparent'
-            }`}
-          >
-            <img
-              src={m8_2Icon}
-              alt="Gentle Mates"
-              className="w-12 h-[46px] cursor-pointer rounded-md"
-              onClick={() =>
-                props.onArtistChange({ name: 'm8', bannerNumber: 2 })
-              }
-            />
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ const useImageUtils = ({ username }: UseImageUtilsProps = {}) => {
     if (!artist) return '';
 
     return new URL(
-      `../assets/images/banners/${artist.name}_${artist.bannerNumber}.png`,
+      `../assets/images/banners/${artist.name}_${artist.bannerNumber || 1}.png`,
       import.meta.url,
     ).href;
   };
