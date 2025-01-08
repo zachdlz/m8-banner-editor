@@ -26,6 +26,8 @@ const PlaygroundCard = (props: PlaygroundCardProps) => {
         />
         <TextInput
           label="Ton rôle"
+          helperText="Maximum 30 caractères"
+          maxLength={30}
           placeholder="CEO OF LEAK"
           value={props.role}
           onChange={(value) => props.onRoleChange(value)}

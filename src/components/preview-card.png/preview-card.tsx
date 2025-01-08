@@ -100,6 +100,12 @@ const PreviewCard = (props: PreviewCardProps) => {
     return calculateFontSize(props.username, maxTextWidth, initialFontSize);
   };
 
+  const getRoleFontSize = () => {
+    const maxTextWidth = getImageDimensions().width * 0.12;
+    const initialFontSize = getImageDimensions().width * 0.016;
+    return calculateFontSize(props.role, maxTextWidth, initialFontSize);
+  };
+
   return (
     <div className="order-1 xl:order-none w-full xl:w-[80%] border border-transparent rounded-lg bg-grid bg-repeat bg-center bg-cover relative font-figtree flex flex-col h-full overflow-x-hidden">
       <h2 className="text-foreground-primary text-lg font-bold font-cal text-center pt-4">
@@ -143,7 +149,7 @@ const PreviewCard = (props: PreviewCardProps) => {
                       text={props.role}
                       x={getImageDimensions().width * 0.795}
                       y={getImageDimensions().height * 0.48}
-                      fontSize={getImageDimensions().width * 0.016}
+                      fontSize={getRoleFontSize()}
                       fontFamily="Helvetica"
                       fontVariant="bold"
                       fill="#1e1d1e"
