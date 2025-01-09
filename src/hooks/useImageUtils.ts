@@ -23,14 +23,35 @@ const useImageUtils = ({ username }: UseImageUtilsProps = {}) => {
     const sourceCanvas = document.querySelector('canvas');
     if (!sourceCanvas) return;
 
-    const tempCanvas = document.createElement('canvas');
-    tempCanvas.width = 1500;
-    tempCanvas.height = 500;
-    const tempCtx = tempCanvas.getContext('2d');
+    const intermediateCanvas = document.createElement('canvas');
+    intermediateCanvas.width = sourceCanvas.width;
+    intermediateCanvas.height = sourceCanvas.height;
+    const intermediateCtx = intermediateCanvas.getContext('2d');
+    if (!intermediateCtx) return;
 
+    intermediateCtx.drawImage(sourceCanvas, 0, 0);
+
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = BASE_WIDTH;
+    tempCanvas.height = BASE_HEIGHT;
+    const tempCtx = tempCanvas.getContext('2d');
     if (!tempCtx) return;
 
-    tempCtx.drawImage(sourceCanvas, 0, 0, 1500, 500);
+    tempCtx.imageSmoothingEnabled = true;
+    tempCtx.imageSmoothingQuality = 'high';
+
+    tempCtx.drawImage(
+      intermediateCanvas,
+      0,
+      0,
+      sourceCanvas.width,
+      sourceCanvas.height,
+      0,
+      0,
+      BASE_WIDTH,
+      BASE_HEIGHT,
+    );
+
     return tempCanvas;
   };
 

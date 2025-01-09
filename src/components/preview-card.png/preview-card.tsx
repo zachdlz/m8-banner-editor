@@ -61,7 +61,7 @@ const PreviewCard = (props: PreviewCardProps) => {
       setLastValidDimensions(dimensions);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [containerWidth, lastValidDimensions]);
+  }, [containerWidth]);
 
   useEffect(() => {
     const font = new FontFace(

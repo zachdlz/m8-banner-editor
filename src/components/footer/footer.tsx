@@ -2,7 +2,7 @@ import { GithubIcon } from '../../assets/icons';
 
 const Footer = () => {
   return (
-    <footer className="p-4 text-center text-foreground-secondary font-figtree text-sm">
+    <footer className="p-4 text-center text-foreground-secondary font-figtree text-sm mb-2">
       <a
         href="https://github.com/zachdlz/m8-banner-editor"
         className="flex justify-center mb-1"
