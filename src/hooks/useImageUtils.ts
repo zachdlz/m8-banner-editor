@@ -6,6 +6,10 @@ type UseImageUtilsProps = {
 };
 
 const useImageUtils = ({ username }: UseImageUtilsProps = {}) => {
+  const BASE_WIDTH = 1500;
+  const BASE_HEIGHT = 500;
+  const ASPECT_RATIO = BASE_WIDTH / BASE_HEIGHT;
+
   const getBannerUrl = (artist: Artist | undefined, supporterLevel: string) => {
     if (!artist) return '';
 
@@ -87,10 +91,64 @@ const useImageUtils = ({ username }: UseImageUtilsProps = {}) => {
     }
   };
 
+  const getImageDimensions = (
+    containerWidth: number,
+    lastValidDimensions: { width: number; height: number },
+  ) => {
+    if (!containerWidth) return lastValidDimensions;
+
+    const maxWidth = Math.min(containerWidth, window.innerWidth * 0.9);
+    const width = maxWidth;
+    const height = width / ASPECT_RATIO;
+
+    return { width, height };
+  };
+
+  const calculateFontSize = (
+    text: string,
+    maxWidth: number,
+    initialSize: number,
+  ) => {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    if (!context) return initialSize;
+
+    let fontSize = initialSize;
+    context.font = `${fontSize}px TuskerGrotesk`;
+    let textWidth = context.measureText(text).width;
+
+    while (textWidth > maxWidth && fontSize > 1) {
+      fontSize -= 1;
+      context.font = `${fontSize}px TuskerGrotesk`;
+      textWidth = context.measureText(text).width;
+    }
+
+    return fontSize;
+  };
+
+  const getUsernameFontSize = (
+    dimensions: { width: number },
+    username: string,
+  ) => {
+    const maxTextWidth = dimensions.width * 0.206;
+    const initialFontSize = dimensions.width * 0.045;
+    return calculateFontSize(username, maxTextWidth, initialFontSize);
+  };
+
+  const getRoleFontSize = (dimensions: { width: number }, role: string) => {
+    const maxTextWidth = dimensions.width * 0.12;
+    const initialFontSize = dimensions.width * 0.016;
+    return calculateFontSize(role, maxTextWidth, initialFontSize);
+  };
+
   return {
     handleCopy,
     handleDownload,
     getBannerUrl,
+    getImageDimensions,
+    getUsernameFontSize,
+    getRoleFontSize,
+    BASE_HEIGHT,
   };
 };
 

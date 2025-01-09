@@ -4,6 +4,7 @@ import { CopyIcon, DownloadIcon } from '../../assets/icons';
 import { Layer, Stage, Image, Text } from 'react-konva';
 import useImage from 'use-image';
 import { Loader } from '../loader';
+import useImageUtils from '../../hooks/useImageUtils';
 
 type PreviewCardProps = {
   username: string;
@@ -22,9 +23,12 @@ const PreviewCard = (props: PreviewCardProps) => {
     height: 0,
   });
 
-  const BASE_WIDTH = 1500;
-  const BASE_HEIGHT = 500;
-  const ASPECT_RATIO = BASE_WIDTH / BASE_HEIGHT;
+  const {
+    BASE_HEIGHT,
+    getImageDimensions,
+    getUsernameFontSize,
+    getRoleFontSize,
+  } = useImageUtils();
 
   useEffect(() => {
     const updateDimensions = () => {
@@ -44,27 +48,20 @@ const PreviewCard = (props: PreviewCardProps) => {
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
-  const getImageDimensions = () => {
-    if (!containerWidth) return lastValidDimensions;
-
-    const maxWidth = Math.min(containerWidth, window.innerWidth * 0.9);
-    const width = maxWidth;
-    const height = width / ASPECT_RATIO;
-
-    return { width, height };
-  };
+  const currentDimensions = getImageDimensions(
+    containerWidth,
+    lastValidDimensions,
+  );
+  const displayHeight =
+    currentDimensions.height || lastValidDimensions.height || BASE_HEIGHT;
 
   useEffect(() => {
-    const dimensions = getImageDimensions();
+    const dimensions = getImageDimensions(containerWidth, lastValidDimensions);
     if (dimensions.width !== 0 && dimensions.height !== 0) {
       setLastValidDimensions(dimensions);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [containerWidth]);
-
-  const currentDimensions = getImageDimensions();
-  const displayHeight =
-    currentDimensions.height || lastValidDimensions.height || BASE_HEIGHT;
+  }, [containerWidth, lastValidDimensions]);
 
   useEffect(() => {
     const font = new FontFace(
@@ -85,40 +82,6 @@ const PreviewCard = (props: PreviewCardProps) => {
 
   const isLoaded = fontLoaded && imageStatus === 'loaded';
 
-  const calculateFontSize = (
-    text: string,
-    maxWidth: number,
-    initialSize: number,
-  ) => {
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
-    if (!context) return initialSize;
-
-    let fontSize = initialSize;
-    context.font = `${fontSize}px TuskerGrotesk`;
-    let textWidth = context.measureText(text).width;
-
-    while (textWidth > maxWidth && fontSize > 1) {
-      fontSize -= 1;
-      context.font = `${fontSize}px TuskerGrotesk`;
-      textWidth = context.measureText(text).width;
-    }
-
-    return fontSize;
-  };
-
-  const getUsernameFontSize = () => {
-    const maxTextWidth = getImageDimensions().width * 0.206;
-    const initialFontSize = getImageDimensions().width * 0.045;
-    return calculateFontSize(props.username, maxTextWidth, initialFontSize);
-  };
-
-  const getRoleFontSize = () => {
-    const maxTextWidth = getImageDimensions().width * 0.12;
-    const initialFontSize = getImageDimensions().width * 0.016;
-    return calculateFontSize(props.role, maxTextWidth, initialFontSize);
-  };
-
   return (
     <div className="order-1 xl:order-none w-full xl:w-[80%] border border-transparent rounded-lg bg-grid bg-repeat bg-center bg-cover relative font-figtree flex flex-col h-full overflow-x-hidden">
       <h2 className="text-foreground-primary text-lg font-bold font-cal text-center pt-4">
@@ -131,13 +94,21 @@ const PreviewCard = (props: PreviewCardProps) => {
         >
           {imageStatus === 'loading' ? (
             <Loader
-              width={getImageDimensions().width}
-              height={getImageDimensions().height}
+              width={
+                getImageDimensions(containerWidth, lastValidDimensions).width
+              }
+              height={
+                getImageDimensions(containerWidth, lastValidDimensions).height
+              }
             />
           ) : (
             <Stage
-              width={getImageDimensions().width}
-              height={getImageDimensions().height}
+              width={
+                getImageDimensions(containerWidth, lastValidDimensions).width
+              }
+              height={
+                getImageDimensions(containerWidth, lastValidDimensions).height
+              }
               style={{
                 display: 'flex',
                 justifyContent: 'center',
@@ -146,33 +117,67 @@ const PreviewCard = (props: PreviewCardProps) => {
               }}
             >
               <Layer>
-                <Image image={image} {...getImageDimensions()} />
+                <Image
+                  image={image}
+                  {...getImageDimensions(containerWidth, lastValidDimensions)}
+                />
                 {isLoaded && (
                   <>
                     <Text
                       text={props.username}
-                      x={getImageDimensions().width * 0.778}
-                      y={
-                        getImageDimensions().height * 0.34 +
-                        (getImageDimensions().width * 0.045 -
-                          getUsernameFontSize())
+                      x={
+                        getImageDimensions(containerWidth, lastValidDimensions)
+                          .width * 0.778
                       }
-                      fontSize={getUsernameFontSize()}
+                      y={
+                        getImageDimensions(containerWidth, lastValidDimensions)
+                          .height *
+                          0.34 +
+                        (getImageDimensions(containerWidth, lastValidDimensions)
+                          .width *
+                          0.045 -
+                          getUsernameFontSize(
+                            getImageDimensions(
+                              containerWidth,
+                              lastValidDimensions,
+                            ),
+                            props.username,
+                          ))
+                      }
+                      fontSize={getUsernameFontSize(
+                        getImageDimensions(containerWidth, lastValidDimensions),
+                        props.username,
+                      )}
                       fontFamily="TuskerGrotesk"
                       fill="#1e1d1e"
-                      width={getImageDimensions().width * 0.206}
+                      width={
+                        getImageDimensions(containerWidth, lastValidDimensions)
+                          .width * 0.206
+                      }
                       align="right"
                       wrap="none"
                     />
                     <Text
                       text={props.role}
-                      x={getImageDimensions().width * 0.795}
-                      y={getImageDimensions().height * 0.48}
-                      fontSize={getRoleFontSize()}
+                      x={
+                        getImageDimensions(containerWidth, lastValidDimensions)
+                          .width * 0.795
+                      }
+                      y={
+                        getImageDimensions(containerWidth, lastValidDimensions)
+                          .height * 0.48
+                      }
+                      fontSize={getRoleFontSize(
+                        getImageDimensions(containerWidth, lastValidDimensions),
+                        props.role,
+                      )}
                       fontFamily="Helvetica"
                       fontVariant="bold"
                       fill="#1e1d1e"
-                      width={getImageDimensions().width * 0.188}
+                      width={
+                        getImageDimensions(containerWidth, lastValidDimensions)
+                          .width * 0.188
+                      }
                       fontStyle="italic"
                       align="right"
                       wrap="none"
