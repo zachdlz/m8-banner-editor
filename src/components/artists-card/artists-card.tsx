@@ -22,7 +22,7 @@ const ArtistsCard = (props: ArtistsCardProps) => {
               {artistGroup.covers.map((cover) => (
                 <div
                   key={`${artistGroup.group}-${cover.number}`}
-                  className={`rounded-lg p-[1px] border-2 ${
+                  className={`rounded-xl p-[2px] border-2 ${
                     props.selectedArtist?.name === artistGroup.group &&
                     props.selectedArtist?.bannerNumber === cover.number
                       ? 'border-foreground-accent'
@@ -32,7 +32,7 @@ const ArtistsCard = (props: ArtistsCardProps) => {
                   <img
                     src={cover.icon}
                     alt={artistGroup.group}
-                    className="w-12 h-[46px] cursor-pointer rounded-md"
+                    className="w-12 h-[46px] cursor-pointer rounded-lg"
                     onClick={() =>
                       props.onArtistChange({
                         name: artistGroup.group,
