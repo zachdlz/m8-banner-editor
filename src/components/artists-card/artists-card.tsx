@@ -1,5 +1,5 @@
 import { Artist } from '../../utils/types';
-import { ARTISTS } from '../../utils/constants';
+import { ARTISTS } from '../../utils/artists';
 
 type ArtistsCardProps = {
   onArtistChange: (artist: Artist) => void;

@@ -1,5 +1,4 @@
-import M8Logo from '../m8-logo';
-import TGSLogo from '../tgs-logo';
+import { M8Icon, TGSIcon } from '../../assets/icons';
 
 const Header = () => {
   return (
@@ -7,7 +6,7 @@ const Header = () => {
       <h1 className="text-foreground-primary text-center text-4xl font-bold leading-10 font-cal">
         Créer une bannière{' '}
         <span className="whitespace-nowrap">
-          <M8Logo />
+          <M8Icon />
           Gentle Mates,
         </span>
         <br />
@@ -22,7 +21,7 @@ const Header = () => {
         <p className="text-foreground-accent text-xs text-center mt-5 py-1.5 px-3 bg-background-accent rounded-full w-fit mx-auto">
           Powered by
           <span className="font-semibold ml-2">
-            <TGSLogo /> The Green Suits
+            <TGSIcon /> The Green Suits
           </span>
         </p>
       </a>

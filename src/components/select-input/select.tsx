@@ -27,15 +27,15 @@ const SelectInput = (props: SelectProps) => {
         isSearchable={props.searchable || false}
         classNames={{
           control: (state) =>
-            `border border-border rounded-md px-3 py-2 text-sm text-foreground-primary ${
+            `border border-border rounded-md px-3 py-2 text-sm text-foreground-primary${
               state.isFocused ? 'ring-2 ring-foreground-accent' : ''
             }`,
           dropdownIndicator: () => 'text-foreground-secondary',
           menu: () => 'relative z-[100]',
           menuList: () =>
-            'text-foreground-primary border border-border rounded-md mt-2 text-sm bg-white z-50',
+            'text-foreground-primary border border-border rounded-md mt-2 text-sm bg-background z-50',
           option: () =>
-            'py-2 px-3 hover:bg-gray-100 active:bg-gray-200 hover:text-black text-sm bg-white',
+            'py-2 px-3 hover:bg-gray-100 active:bg-gray-200 hover:text-black text-sm bg-background',
         }}
         options={props.options}
         value={props.value}

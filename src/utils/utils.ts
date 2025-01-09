@@ -1,4 +1,4 @@
-import { ARTISTS } from './constants';
+import { ARTISTS } from './artists';
 
 const getInputs = (artistGroup: string) => {
   return ARTISTS.find((artist) => artist.group === artistGroup)?.inputs || [];
