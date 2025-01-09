@@ -2,12 +2,14 @@ import { type ArtistGroup } from './types';
 
 import m8_1Icon from '../assets/images/covers/m8_1.png';
 import m8_2Icon from '../assets/images/covers/m8_2.png';
+//import zhaakIcon from '../assets/images/covers/zhaak_1.png';
 
 const ARTISTS: ArtistGroup[] = [
   {
     label: 'Gentle Mates',
     group: 'm8',
     inputs: [
+      { id: 'username', type: 'text' },
       { id: 'role', type: 'text' },
       {
         id: 'supporter-level',
@@ -27,7 +29,8 @@ const ARTISTS: ArtistGroup[] = [
   // {
   //   label: 'Zhaak',
   //   group: 'zhaak',
-  //   banners: [{ icon: zhaakIcon, number: 1 }],
+  //   inputs: [{ id: 'username', type: 'text' }],
+  //   covers: [{ icon: zhaakIcon, number: 1 }],
   // },
 ];
 

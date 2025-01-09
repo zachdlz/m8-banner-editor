@@ -23,14 +23,16 @@ const PlaygroundCard = (props: PlaygroundCardProps) => {
         Playground
       </h2>
       <div className="flex flex-col gap-1">
-        <TextInput
-          label="Ton pseudo"
-          helperText="Maximum 15 caractères"
-          maxLength={15}
-          placeholder="SOUEEZIE"
-          value={props.username}
-          onChange={(value) => props.onUsernameChange(value)}
-        />
+        {inputExist(props.artistGroup, 'username') && (
+          <TextInput
+            label="Ton pseudo"
+            helperText="Maximum 15 caractères"
+            maxLength={15}
+            placeholder="SOUEEZIE"
+            value={props.username}
+            onChange={(value) => props.onUsernameChange(value)}
+          />
+        )}
 
         {inputExist(props.artistGroup, 'role') && (
           <TextInput
