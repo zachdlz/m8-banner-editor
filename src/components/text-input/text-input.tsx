@@ -21,7 +21,7 @@ const TextInput = (props: TextInputProps) => {
       <input
         type="text"
         id={`${props.label}-input`}
-        className="w-full h-9 border border-border rounded-md p-2 text-sm focus:outline-none focus:ring-2 focus:ring-foreground-accent"
+        className="w-full h-9 border border-border rounded-md p-2 text-sm focus:outline-none focus:ring-2 focus:ring-foreground-accent placeholder:text-foreground-secondary"
         placeholder={props.placeholder}
         value={props.value}
         onChange={(e) => props.onChange(e.target.value)}

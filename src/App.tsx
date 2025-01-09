@@ -8,10 +8,12 @@ import PreviewCard from './components/preview-card.png';
 import Header from './components/header';
 import Footer from './components/footer';
 import { Artist } from './utils/types';
+import { getInputs } from './utils/utils';
 
 const App = () => {
   const [username, setUsername] = useState('');
   const [role, setRole] = useState('');
+  const [supporterLevel, setSupporterLevel] = useState('ultra');
   const [selectedArtist, setSelectedArtist] = useState<Artist>({
     name: 'm8',
     bannerNumber: 1,
@@ -34,17 +36,23 @@ const App = () => {
           <PreviewCard
             username={username}
             role={role}
-            bannerUrl={getBannerUrl(selectedArtist)}
+            bannerUrl={getBannerUrl(selectedArtist, supporterLevel)}
             onDownload={handleDownload}
             onCopy={handleCopy}
           />
           <PlaygroundCard
             username={username}
             role={role}
+            artistGroup={selectedArtist.name}
+            supporterLevel={supporterLevel}
             onUsernameChange={(newUsername) =>
               setUsername(newUsername.toUpperCase())
             }
             onRoleChange={(newRole) => setRole(newRole.toUpperCase())}
+            onSupporterLevelChange={(newSupporterLevel) =>
+              setSupporterLevel(newSupporterLevel)
+            }
+            inputs={getInputs(selectedArtist.name)}
           />
         </main>
 

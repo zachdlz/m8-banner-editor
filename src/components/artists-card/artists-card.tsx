@@ -1,5 +1,5 @@
 import { Artist } from '../../utils/types';
-import { ARTISTS } from './artists';
+import { ARTISTS } from '../../utils/constants';
 
 type ArtistsCardProps = {
   onArtistChange: (artist: Artist) => void;
@@ -19,24 +19,24 @@ const ArtistsCard = (props: ArtistsCardProps) => {
               ~ {artistGroup.label}
             </h3>
             <div className="flex items-center gap-2">
-              {artistGroup.banners.map((banner) => (
+              {artistGroup.covers.map((cover) => (
                 <div
-                  key={`${artistGroup.group}-${banner.number}`}
+                  key={`${artistGroup.group}-${cover.number}`}
                   className={`rounded-lg p-[1px] border-2 ${
                     props.selectedArtist?.name === artistGroup.group &&
-                    props.selectedArtist?.bannerNumber === banner.number
+                    props.selectedArtist?.bannerNumber === cover.number
                       ? 'border-foreground-accent'
                       : 'border-transparent'
                   }`}
                 >
                   <img
-                    src={banner.icon}
+                    src={cover.icon}
                     alt={artistGroup.group}
                     className="w-12 h-[46px] cursor-pointer rounded-md"
                     onClick={() =>
                       props.onArtistChange({
                         name: artistGroup.group,
-                        bannerNumber: banner.number,
+                        bannerNumber: cover.number,
                       })
                     }
                   />

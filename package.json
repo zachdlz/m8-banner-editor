@@ -15,6 +15,7 @@
     "react-dom": "19.0.0",
     "react-hot-toast": "^2.5.1",
     "react-konva": "^19.0.1",
+    "react-select": "^5.9.0",
     "use-image": "^1.1.1"
   },
   "devDependencies": {

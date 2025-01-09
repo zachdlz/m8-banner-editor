@@ -1,12 +1,19 @@
 import { EraseIcon } from '../../assets/icons';
 import Button from '../buttons';
 import TextInput from '../text-input';
+import { type ArtistGroup } from '../../utils/types';
+import { firstUpperCase, inputExist } from '../../utils/utils';
+import Select from '../select-input';
 
 type PlaygroundCardProps = {
   username: string;
   role: string;
+  artistGroup: string;
+  supporterLevel: string;
   onUsernameChange: (username: string) => void;
   onRoleChange: (role: string) => void;
+  onSupporterLevelChange: (supporterLevel: string) => void;
+  inputs: ArtistGroup['inputs'];
 };
 
 const PlaygroundCard = (props: PlaygroundCardProps) => {
@@ -24,14 +31,35 @@ const PlaygroundCard = (props: PlaygroundCardProps) => {
           value={props.username}
           onChange={(value) => props.onUsernameChange(value)}
         />
-        <TextInput
-          label="Ton rôle"
-          helperText="Maximum 30 caractères"
-          maxLength={30}
-          placeholder="CEO OF LEAK"
-          value={props.role}
-          onChange={(value) => props.onRoleChange(value)}
-        />
+
+        {inputExist(props.artistGroup, 'role') && (
+          <TextInput
+            label="Ton rôle"
+            helperText="Maximum 30 caractères"
+            maxLength={30}
+            placeholder="CEO OF LEAK"
+            value={props.role}
+            onChange={(value) => props.onRoleChange(value)}
+          />
+        )}
+
+        {inputExist(props.artistGroup, 'supporter-level') && (
+          <Select
+            id="supporter-level"
+            label="Niveau de soutien"
+            options={
+              props.inputs.find((input) => input.id === 'supporter-level')
+                ?.options ?? []
+            }
+            value={{
+              value: props.supporterLevel,
+              label: firstUpperCase(props.supporterLevel),
+            }}
+            onChange={(option) =>
+              option && props.onSupporterLevelChange(option.value)
+            }
+          />
+        )}
       </div>
       <div className="flex justify-end mt-4 lg:mt-auto">
         <Button

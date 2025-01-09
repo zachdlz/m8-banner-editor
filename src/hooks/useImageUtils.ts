@@ -6,11 +6,11 @@ type UseImageUtilsProps = {
 };
 
 const useImageUtils = ({ username }: UseImageUtilsProps = {}) => {
-  const getBannerUrl = (artist: Artist | undefined) => {
+  const getBannerUrl = (artist: Artist | undefined, supporterLevel: string) => {
     if (!artist) return '';
 
     return new URL(
-      `../assets/images/banners/${artist.name}_${artist.bannerNumber || 1}.png`,
+      `../assets/images/banners/${artist.name}_${artist.bannerNumber || 1}_${supporterLevel || 'ultra'}.png`,
       import.meta.url,
     ).href;
   };
