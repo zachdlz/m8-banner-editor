@@ -1,9 +1,8 @@
-## 📃 License
+### 📃 License
 
-This project is licensed under the **M8 Banner Editor License, Version 1.0**.
+This project is licensed under the **M8 Banner Editor License, Version 1.0**.\
 Please refer to the [LICENSE.md](./LICENSE.md) file for details.
 
-
-## 🗺️ RoadMap
+### 🗺️ RoadMap
 
 Add various artists banners
