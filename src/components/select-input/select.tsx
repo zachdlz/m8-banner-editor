@@ -33,9 +33,9 @@ const SelectInput = (props: SelectProps) => {
           dropdownIndicator: () => 'text-foreground-secondary',
           menu: () => 'relative z-[100]',
           menuList: () =>
-            'text-foreground-primary border border-border rounded-md mt-2 text-sm bg-background z-50',
+            'text-foreground-primary border border-border rounded-md mt-2 text-sm bg-white z-50',
           option: () =>
-            'py-2 px-3 hover:bg-gray-100 active:bg-gray-200 hover:text-black text-sm bg-background',
+            'py-2 px-3 hover:bg-gray-100 active:bg-gray-200 hover:text-black text-sm bg-white',
         }}
         styles={{
           control: () => ({ cursor: 'pointer', display: 'flex' }),
