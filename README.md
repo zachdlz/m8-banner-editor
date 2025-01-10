@@ -1,12 +1,9 @@
-## Licence
+## 📃 License
 
-Ce projet est sous licence **M8 Banner Editor License, Version 1.0**.  
-Veuillez consulter le fichier [LICENSE.md](./LICENSE.md) pour les détails.
+This project is licensed under the **M8 Banner Editor License, Version 1.0**.
+Please refer to the [LICENSE.md](./LICENSE.md) file for details.
 
 
-## Work in progress 🚧
+## 🗺️ RoadMap
 
-Road Map :
-
-- Make website fully responsive for mobile and desktop devices
-- Add more template banners from differents artists
+Add various artists banners
