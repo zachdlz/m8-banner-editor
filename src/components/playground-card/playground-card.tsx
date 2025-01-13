@@ -9,7 +9,7 @@ type PlaygroundCardProps = {
   username: string;
   role: string;
   artistGroup: string;
-  supporterLevel: string;
+  supporterLevel?: string;
   onUsernameChange: (username: string) => void;
   onRoleChange: (role: string) => void;
   onSupporterLevelChange: (supporterLevel: string) => void;
@@ -45,23 +45,24 @@ const PlaygroundCard = (props: PlaygroundCardProps) => {
           />
         )}
 
-        {inputExist(props.artistGroup, 'supporter-level') && (
-          <Select
-            id="supporter-level"
-            label="Niveau de soutien"
-            options={
-              props.inputs.find((input) => input.id === 'supporter-level')
-                ?.options ?? []
-            }
-            value={{
-              value: props.supporterLevel,
-              label: firstUpperCase(props.supporterLevel),
-            }}
-            onChange={(option) =>
-              option && props.onSupporterLevelChange(option.value)
-            }
-          />
-        )}
+        {inputExist(props.artistGroup, 'supporter-level') &&
+          props.supporterLevel && (
+            <Select
+              id="supporter-level"
+              label="Niveau de soutien"
+              options={
+                props.inputs.find((input) => input.id === 'supporter-level')
+                  ?.options ?? []
+              }
+              value={{
+                value: props.supporterLevel,
+                label: firstUpperCase(props.supporterLevel),
+              }}
+              onChange={(option) =>
+                option && props.onSupporterLevelChange(option.value)
+              }
+            />
+          )}
       </div>
       <div className="flex justify-end mt-4 lg:mt-auto">
         <Button

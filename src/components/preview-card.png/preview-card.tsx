@@ -5,10 +5,11 @@ import { Layer, Stage, Image, Text } from 'react-konva';
 import useImage from 'use-image';
 import { Loader } from '../loader';
 import useImageUtils from '../../hooks/useImageUtils';
+import { type Text as TextType } from '../../utils/types';
 
 type PreviewCardProps = {
-  username: string;
-  role: string;
+  username: TextType;
+  role: TextType;
   bannerUrl: string;
   onDownload: () => void;
   onCopy: () => void;
@@ -64,9 +65,12 @@ const PreviewCard = (props: PreviewCardProps) => {
   }, [containerWidth]);
 
   useEffect(() => {
+    const fontName = props.username.font || 'TuskerGrotesk';
+    const fontPath = `../../assets/fonts/${fontName}.woff2`;
+
     const font = new FontFace(
-      'TuskerGrotesk',
-      `url(${new URL('../../assets/fonts/TuskerGrotesk-4800Super.woff2', import.meta.url).href})`,
+      fontName,
+      `url(${new URL(fontPath, import.meta.url).href})`,
     );
 
     font
@@ -78,7 +82,7 @@ const PreviewCard = (props: PreviewCardProps) => {
       .catch((err) => {
         console.error('Erreur de chargement de la police:', err);
       });
-  }, []);
+  }, [props.username.font]);
 
   const isLoaded = fontLoaded && imageStatus === 'loaded';
 
@@ -124,10 +128,10 @@ const PreviewCard = (props: PreviewCardProps) => {
                 {isLoaded && (
                   <>
                     <Text
-                      text={props.username}
+                      text={props.username.value}
                       x={
                         getImageDimensions(containerWidth, lastValidDimensions)
-                          .width * 0.778
+                          .width * 0.5
                       }
                       y={
                         getImageDimensions(containerWidth, lastValidDimensions)
@@ -141,15 +145,15 @@ const PreviewCard = (props: PreviewCardProps) => {
                               containerWidth,
                               lastValidDimensions,
                             ),
-                            props.username,
+                            props.username.value,
                           ))
                       }
                       fontSize={getUsernameFontSize(
                         getImageDimensions(containerWidth, lastValidDimensions),
-                        props.username,
+                        props.username.value,
                       )}
-                      fontFamily="TuskerGrotesk"
-                      fill="#1e1d1e"
+                      fontFamily={props.username.font || 'TuskerGrotesk'}
+                      fill={props.username.color || '#000000'}
                       width={
                         getImageDimensions(containerWidth, lastValidDimensions)
                           .width * 0.206
@@ -158,7 +162,7 @@ const PreviewCard = (props: PreviewCardProps) => {
                       wrap="none"
                     />
                     <Text
-                      text={props.role}
+                      text={props.role.value}
                       x={
                         getImageDimensions(containerWidth, lastValidDimensions)
                           .width * 0.795
@@ -169,7 +173,7 @@ const PreviewCard = (props: PreviewCardProps) => {
                       }
                       fontSize={getRoleFontSize(
                         getImageDimensions(containerWidth, lastValidDimensions),
-                        props.role,
+                        props.role.value,
                       )}
                       fontFamily="Helvetica"
                       fontVariant="bold"

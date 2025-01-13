@@ -37,9 +37,9 @@ const ArtistsCard = (props: ArtistsCardProps) => {
       <h2 className="text-foreground-primary text-lg font-bold font-cal">
         Artistes
       </h2>
-      <div>
+      <div className="flex flex-col gap-3">
         {ARTISTS.map((artistGroup) => (
-          <div key={artistGroup.group} className="flex flex-col gap-1">
+          <div key={artistGroup.group} className="flex flex-col">
             <h3 className="text-foreground-primary text-md">
               ~ {artistGroup.label}
             </h3>

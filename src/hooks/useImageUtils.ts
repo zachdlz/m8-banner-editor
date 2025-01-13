@@ -10,11 +10,14 @@ const useImageUtils = ({ username }: UseImageUtilsProps = {}) => {
   const BASE_HEIGHT = 500;
   const ASPECT_RATIO = BASE_WIDTH / BASE_HEIGHT;
 
-  const getBannerUrl = (artist: Artist | undefined, supporterLevel: string) => {
+  const getBannerUrl = (
+    artist: Artist | undefined,
+    supporterLevel?: string,
+  ) => {
     if (!artist) return '';
 
     return new URL(
-      `../assets/images/banners/${artist.name}_${artist.bannerNumber || 1}_${supporterLevel || 'ultra'}.png`,
+      `../assets/images/banners/${artist.name}_${artist.bannerNumber || 1}${supporterLevel ? `_${supporterLevel}` : ''}.png`,
       import.meta.url,
     ).href;
   };

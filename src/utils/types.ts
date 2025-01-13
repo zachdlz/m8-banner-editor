@@ -3,6 +3,12 @@ type Artist = {
   bannerNumber: number;
 };
 
+type Text = {
+  value: string;
+  font?: string;
+  color?: string;
+};
+
 type SelectOption = {
   value: string;
   label: string;
@@ -14,6 +20,9 @@ type ArtistGroup = {
   inputs: {
     id: string;
     type: 'text' | 'select';
+    font?: string;
+    color?: string;
+    default?: string;
     options?: SelectOption[];
   }[];
   covers: {
@@ -22,4 +31,4 @@ type ArtistGroup = {
   }[];
 };
 
-export type { Artist, ArtistGroup, SelectOption };
+export type { Artist, ArtistGroup, SelectOption, Text };
