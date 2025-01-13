@@ -3,10 +3,12 @@ type Artist = {
   bannerNumber: number;
 };
 
-type Text = {
+type CanvasText = {
   value: string;
   font?: string;
   color?: string;
+  xMultiplier?: number;
+  yMultiplier?: number;
 };
 
 type SelectOption = {
@@ -23,6 +25,8 @@ type ArtistGroup = {
     font?: string;
     color?: string;
     default?: string;
+    xMultiplier?: number;
+    yMultiplier?: number;
     options?: SelectOption[];
   }[];
   covers: {
@@ -31,4 +35,4 @@ type ArtistGroup = {
   }[];
 };
 
-export type { Artist, ArtistGroup, SelectOption, Text };
+export type { Artist, ArtistGroup, SelectOption, CanvasText };

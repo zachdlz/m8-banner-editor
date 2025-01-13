@@ -5,11 +5,11 @@ import { Layer, Stage, Image, Text } from 'react-konva';
 import useImage from 'use-image';
 import { Loader } from '../loader';
 import useImageUtils from '../../hooks/useImageUtils';
-import { type Text as TextType } from '../../utils/types';
+import { type CanvasText } from '../../utils/types';
 
 type PreviewCardProps = {
-  username: TextType;
-  role: TextType;
+  username: CanvasText;
+  role: CanvasText;
   bannerUrl: string;
   onDownload: () => void;
   onCopy: () => void;
@@ -131,12 +131,12 @@ const PreviewCard = (props: PreviewCardProps) => {
                       text={props.username.value}
                       x={
                         getImageDimensions(containerWidth, lastValidDimensions)
-                          .width * 0.5
+                          .width * (props.username.xMultiplier || 0.778)
                       }
                       y={
                         getImageDimensions(containerWidth, lastValidDimensions)
                           .height *
-                          0.34 +
+                          (props.username.yMultiplier || 0.34) +
                         (getImageDimensions(containerWidth, lastValidDimensions)
                           .width *
                           0.045 -

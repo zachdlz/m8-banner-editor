@@ -21,6 +21,8 @@ const App = () => {
     bannerNumber: 1,
   });
 
+  const usernameInput = getInput(selectedArtist.name, 'username');
+
   const { handleDownload, handleCopy, getBannerUrl } = useImageUtils({
     username,
   });
@@ -47,8 +49,10 @@ const App = () => {
           <PreviewCard
             username={{
               value: username,
-              font: getInput(selectedArtist.name, 'username')?.font,
-              color: getInput(selectedArtist.name, 'username')?.color,
+              font: usernameInput?.font,
+              color: usernameInput?.color,
+              xMultiplier: usernameInput?.xMultiplier,
+              yMultiplier: usernameInput?.yMultiplier,
             }}
             role={{ value: role }}
             bannerUrl={getBannerUrl(selectedArtist, supporterLevel)}

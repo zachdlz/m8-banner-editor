@@ -9,7 +9,14 @@ const ARTISTS: ArtistGroup[] = [
     label: 'Gentle Mates',
     group: 'm8',
     inputs: [
-      { id: 'username', type: 'text', font: 'TuskerGrotesk', color: '#1e1d1e' },
+      {
+        id: 'username',
+        type: 'text',
+        font: 'TuskerGrotesk',
+        color: '#1e1d1e',
+        xMultiplier: 0.778,
+        yMultiplier: 0.34,
+      },
       { id: 'role', type: 'text' },
       {
         id: 'supporter-level',
@@ -31,7 +38,14 @@ const ARTISTS: ArtistGroup[] = [
     label: 'Zhaak',
     group: 'zhaak',
     inputs: [
-      { id: 'username', type: 'text', font: 'DharmaGothic', color: '#000000' },
+      {
+        id: 'username',
+        type: 'text',
+        font: 'DharmaGothic',
+        color: '#000000',
+        xMultiplier: 0.652,
+        yMultiplier: 0.48,
+      },
     ],
     covers: [{ icon: zhaakIcon, number: 1 }],
   },
