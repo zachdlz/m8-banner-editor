@@ -5,4 +5,6 @@ Please refer to the [LICENSE.md](./LICENSE.md) file for details.
 
 ### 🗺️ RoadMap
 
-Add various artists banners
+- Add various artists and banners
+- Website translation to EN
+- Migration to Next for SEO
