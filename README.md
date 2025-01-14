@@ -1,3 +1,10 @@
+<div align="center">
+  <a href="https://banner.thegreensuits.fr">
+    <img src="https://banner.thegreensuits.fr/favicon.png" alt="banner_editor" height="96" />
+  </a>
+  <h1>M8 Banner Editor</h1>
+</div>
+
 ### 📃 License
 
 This project is licensed under the **M8 Banner Editor License, Version 1.0**.\
