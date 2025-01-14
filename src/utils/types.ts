@@ -3,12 +3,16 @@ type Artist = {
   bannerNumber: number;
 };
 
-type CanvasText = {
+type TextProps = {
   value: string;
+  default?: string;
   font?: string;
   color?: string;
-  xMultiplier?: number;
-  yMultiplier?: number;
+};
+
+type SelectProps = {
+  value: string;
+  options: SelectOption[];
 };
 
 type SelectOption = {
@@ -19,20 +23,10 @@ type SelectOption = {
 type ArtistGroup = {
   label: string;
   group: string;
-  inputs: {
-    id: string;
-    type: 'text' | 'select';
-    font?: string;
-    color?: string;
-    default?: string;
-    xMultiplier?: number;
-    yMultiplier?: number;
-    options?: SelectOption[];
-  }[];
   covers: {
     icon: string;
     number: number;
   }[];
 };
 
-export type { Artist, ArtistGroup, SelectOption, CanvasText };
+export type { Artist, ArtistGroup, SelectOption, TextProps, SelectProps };

@@ -8,27 +8,6 @@ const ARTISTS: ArtistGroup[] = [
   {
     label: 'Gentle Mates',
     group: 'm8',
-    inputs: [
-      {
-        id: 'username',
-        type: 'text',
-        font: 'TuskerGrotesk',
-        color: '#1e1d1e',
-        xMultiplier: 0.778,
-        yMultiplier: 0.34,
-      },
-      { id: 'role', type: 'text' },
-      {
-        id: 'supporter-level',
-        type: 'select',
-        default: 'ultra',
-        options: [
-          { value: 'ultra', label: 'Ultra' },
-          { value: 'supporter', label: 'Supporter' },
-          { value: 'fan', label: 'Fan' },
-        ],
-      },
-    ],
     covers: [
       { icon: m8_1Icon, number: 1 },
       { icon: m8_2Icon, number: 2 },
@@ -37,16 +16,6 @@ const ARTISTS: ArtistGroup[] = [
   {
     label: 'Zhaak',
     group: 'zhaak',
-    inputs: [
-      {
-        id: 'username',
-        type: 'text',
-        font: 'DharmaGothic',
-        color: '#000000',
-        xMultiplier: 0.652,
-        yMultiplier: 0.48,
-      },
-    ],
     covers: [{ icon: zhaakIcon, number: 1 }],
   },
 ];

@@ -150,12 +150,23 @@ const useImageUtils = ({ username }: UseImageUtilsProps = {}) => {
     return fontSize;
   };
 
-  const getUsernameFontSize = (
-    dimensions: { width: number },
-    username: string,
-  ) => {
-    const maxTextWidth = dimensions.width * 0.206;
-    const initialFontSize = dimensions.width * 0.045;
+  const getUsernameFontSize = ({
+    width,
+    username,
+    fontSizeFixed,
+    fontSizeMultiplier,
+    maxWidthMultiplier,
+  }: {
+    width: number;
+    username: string;
+    fontSizeFixed?: boolean;
+    fontSizeMultiplier?: number;
+    maxWidthMultiplier?: number;
+  }) => {
+    const maxTextWidth = width * (maxWidthMultiplier || 0.206);
+    const initialFontSize = width * (fontSizeMultiplier || 0.045);
+    if (fontSizeFixed) return initialFontSize;
+
     return calculateFontSize(username, maxTextWidth, initialFontSize);
   };
 

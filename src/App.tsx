@@ -51,8 +51,6 @@ const App = () => {
               value: username,
               font: usernameInput?.font,
               color: usernameInput?.color,
-              xMultiplier: usernameInput?.xMultiplier,
-              yMultiplier: usernameInput?.yMultiplier,
             }}
             role={{ value: role }}
             bannerUrl={getBannerUrl(selectedArtist, supporterLevel)}
