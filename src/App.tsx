@@ -7,16 +7,16 @@ import PlaygroundCard from './components/playground-card';
 import PreviewCard from './components/preview-card.png';
 import Header from './components/header';
 import Footer from './components/footer';
-import { Artist } from './utils/types';
+import { Banner } from './utils/types';
 import { getInputs } from './utils/utils';
 
 const App = () => {
   const [username, setUsername] = useState('');
   const [role, setRole] = useState('');
   const [supporterLevel, setSupporterLevel] = useState('ultra');
-  const [selectedArtist, setSelectedArtist] = useState<Artist>({
-    name: 'm8',
-    bannerNumber: 1,
+  const [selectedBanner, setSelectedBanner] = useState<Banner>({
+    group: 'm8',
+    index: 1,
   });
 
   const { handleDownload, handleCopy, getBannerUrl } = useImageUtils({
@@ -30,20 +30,27 @@ const App = () => {
 
         <main className="flex flex-col xl:flex-row gap-6 xl:gap-4 m-auto px-6 md:px-10 py-14 xl:py-20 2xl:py-10 w-screen xl:max-w-[1840px] xl:h-[900px]">
           <ArtistsCard
-            selectedArtist={selectedArtist}
-            onArtistChange={setSelectedArtist}
+            selectedBanner={selectedBanner}
+            onBannerChange={(newBanner) => {
+              setSelectedBanner(newBanner);
+              if (newBanner.group !== selectedBanner.group) {
+                setUsername('');
+                setRole('');
+                setSupporterLevel('');
+              }
+            }}
           />
           <PreviewCard
             username={username}
             role={role}
-            bannerUrl={getBannerUrl(selectedArtist, supporterLevel)}
+            bannerUrl={getBannerUrl(selectedBanner, supporterLevel)}
             onDownload={handleDownload}
             onCopy={handleCopy}
           />
           <PlaygroundCard
             username={username}
             role={role}
-            artistGroup={selectedArtist.name}
+            selectedBanner={selectedBanner}
             supporterLevel={supporterLevel}
             onUsernameChange={(newUsername) =>
               setUsername(newUsername.toUpperCase())
@@ -52,7 +59,7 @@ const App = () => {
             onSupporterLevelChange={(newSupporterLevel) =>
               setSupporterLevel(newSupporterLevel)
             }
-            inputs={getInputs(selectedArtist.name)}
+            inputs={getInputs(selectedBanner.group)}
           />
         </main>
 

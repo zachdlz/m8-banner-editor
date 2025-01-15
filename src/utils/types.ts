@@ -1,6 +1,6 @@
-type Artist = {
-  name: string;
-  bannerNumber: number;
+type Banner = {
+  group: string;
+  index: number;
 };
 
 type SelectOption = {
@@ -8,18 +8,18 @@ type SelectOption = {
   label: string;
 };
 
-type ArtistGroup = {
+type Artist = {
   label: string;
   group: string;
+  banners: {
+    cover: string;
+    index: number;
+  }[];
   inputs: {
     id: string;
     type: 'text' | 'select';
     options?: SelectOption[];
   }[];
-  covers: {
-    icon: string;
-    number: number;
-  }[];
 };
 
-export type { Artist, ArtistGroup, SelectOption };
+export type { Banner, Artist, SelectOption };

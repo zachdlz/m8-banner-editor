@@ -1,5 +1,5 @@
 import toast from 'react-hot-toast';
-import { Artist } from '../utils/types';
+import { type Banner } from '../utils/types';
 
 type UseImageUtilsProps = {
   username?: string;
@@ -10,11 +10,16 @@ const useImageUtils = ({ username }: UseImageUtilsProps = {}) => {
   const BASE_HEIGHT = 500;
   const ASPECT_RATIO = BASE_WIDTH / BASE_HEIGHT;
 
-  const getBannerUrl = (artist: Artist | undefined, supporterLevel: string) => {
-    if (!artist) return '';
+  const getBannerUrl = (
+    selectedBanner: Banner | undefined,
+    supporterLevel?: string,
+  ) => {
+    if (!selectedBanner) return '';
 
     return new URL(
-      `../assets/images/banners/${artist.name}_${artist.bannerNumber || 1}_${supporterLevel || 'ultra'}.png`,
+      `../assets/images/banners/${selectedBanner.group}_${selectedBanner.index || 1}${
+        supporterLevel ? `_${supporterLevel}` : ''
+      }.png`,
       import.meta.url,
     ).href;
   };

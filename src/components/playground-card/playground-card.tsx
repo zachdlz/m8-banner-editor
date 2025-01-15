@@ -1,19 +1,19 @@
 import { EraseIcon } from '../../assets/icons';
 import Button from '../buttons';
 import TextInput from '../text-input';
-import { type ArtistGroup } from '../../utils/types';
+import { type Banner, type Artist } from '../../utils/types';
 import { firstUpperCase, inputExist } from '../../utils/utils';
 import Select from '../select-input';
 
 type PlaygroundCardProps = {
   username: string;
   role: string;
-  artistGroup: string;
+  selectedBanner: Banner;
   supporterLevel: string;
   onUsernameChange: (username: string) => void;
   onRoleChange: (role: string) => void;
   onSupporterLevelChange: (supporterLevel: string) => void;
-  inputs: ArtistGroup['inputs'];
+  inputs: Artist['inputs'];
 };
 
 const PlaygroundCard = (props: PlaygroundCardProps) => {
@@ -23,7 +23,7 @@ const PlaygroundCard = (props: PlaygroundCardProps) => {
         Playground
       </h2>
       <div className="flex flex-col gap-1">
-        {inputExist(props.artistGroup, 'username') && (
+        {inputExist(props.selectedBanner.group, 'username') && (
           <TextInput
             label="Ton pseudo"
             helperText="Maximum 15 caractères"
@@ -34,7 +34,7 @@ const PlaygroundCard = (props: PlaygroundCardProps) => {
           />
         )}
 
-        {inputExist(props.artistGroup, 'role') && (
+        {inputExist(props.selectedBanner.group, 'role') && (
           <TextInput
             label="Ton rôle"
             helperText="Maximum 30 caractères"
@@ -45,7 +45,7 @@ const PlaygroundCard = (props: PlaygroundCardProps) => {
           />
         )}
 
-        {inputExist(props.artistGroup, 'supporter-level') && (
+        {inputExist(props.selectedBanner.group, 'supporter-level') && (
           <Select
             id="supporter-level"
             label="Niveau de soutien"
@@ -71,6 +71,7 @@ const PlaygroundCard = (props: PlaygroundCardProps) => {
           onClick={() => {
             props.onUsernameChange('');
             props.onRoleChange('');
+            props.onSupporterLevelChange('ultra');
           }}
         />
       </div>
