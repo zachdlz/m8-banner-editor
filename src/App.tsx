@@ -36,7 +36,8 @@ const App = () => {
               if (newBanner.group !== selectedBanner.group) {
                 setUsername('');
                 setRole('');
-                setSupporterLevel('');
+
+                setSupporterLevel(newBanner.group === 'm8' ? 'ultra' : '');
               }
             }}
           />
