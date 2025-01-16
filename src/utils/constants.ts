@@ -8,6 +8,7 @@ const ARTISTS: Artist[] = [
   {
     label: 'Gentle Mates',
     group: 'm8',
+    externalLink: 'https://www.gentlemates.com',
     banners: [
       { cover: m8_1Img, index: 1 },
       { cover: m8_2Img, index: 2 },

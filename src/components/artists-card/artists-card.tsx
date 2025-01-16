@@ -1,6 +1,7 @@
 import { type Banner, type Artist } from '../../utils/types';
 import { ARTISTS } from '../../utils/constants';
 import { memo } from 'react';
+import ArrowIcon from '../../assets/icons/arrow-icon';
 
 type ArtistsCardProps = {
   onBannerChange: (banner: Banner) => void;
@@ -33,15 +34,28 @@ const ArtistImage = memo(
 
 const ArtistsCard = (props: ArtistsCardProps) => {
   return (
-    <div className="order-3 xl:order-none min-w-[164px] bg-white border border-border rounded-lg px-5 pt-4 pb-5 flex flex-col gap-3 font-figtree">
+    <div className="order-3 xl:order-none min-w-[170px] bg-white border border-border rounded-lg px-5 pt-4 pb-5 flex flex-col gap-3 font-figtree">
       <h2 className="text-foreground-primary text-lg font-bold font-cal">
         Artistes
       </h2>
       <div className="flex flex-col gap-3">
         {ARTISTS.map((artistGroup) => (
           <div key={artistGroup.group} className="flex flex-col gap-1">
-            <h3 className="text-foreground-primary text-md">
+            <h3
+              className={`flex items-center gap-1 text-foreground-primary text-md ${
+                artistGroup.externalLink
+                  ? 'hover:underline cursor-pointer group'
+                  : ''
+              }`}
+              onClick={() =>
+                artistGroup.externalLink &&
+                window.open(artistGroup.externalLink, '_blank')
+              }
+            >
               ~ {artistGroup.label}
+              <div className="invisible group-hover:visible">
+                <ArrowIcon />
+              </div>
             </h3>
             <div className="flex items-center gap-2">
               {artistGroup.banners.map((banner) => (

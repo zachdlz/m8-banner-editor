@@ -11,6 +11,7 @@ type SelectOption = {
 type Artist = {
   label: string;
   group: string;
+  externalLink?: string;
   banners: {
     cover: string;
     index: number;
