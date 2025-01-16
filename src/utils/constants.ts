@@ -30,9 +30,43 @@ const ARTISTS: Artist[] = [
   {
     label: 'Zhaak',
     group: 'zhaak',
+    externalLink: 'https://zhaak.fr',
     inputs: [{ id: 'username', type: 'text' }],
     banners: [{ cover: zhaakImg, index: 1 }],
   },
-];
+] as const;
 
-export { ARTISTS };
+const BANNER_FONTS = {
+  m8: {
+    1: {
+      username: {
+        family: 'TuskerGrotesk',
+        url: '../assets/fonts/TuskerGrotesk-4800Super.woff2',
+      },
+      role: {
+        family: 'Helvetica',
+        url: null,
+      },
+    },
+    2: {
+      username: {
+        family: 'TuskerGrotesk',
+        url: '../assets/fonts/TuskerGrotesk-4800Super.woff2',
+      },
+      role: {
+        family: 'Helvetica',
+        url: null,
+      },
+    },
+  },
+  zhaak: {
+    1: {
+      username: {
+        family: 'DharmaGothic',
+        url: '../assets/fonts/DharmaGothic.woff2',
+      },
+    },
+  },
+} as const;
+
+export { ARTISTS, BANNER_FONTS };

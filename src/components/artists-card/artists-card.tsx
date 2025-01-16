@@ -42,9 +42,9 @@ const ArtistsCard = (props: ArtistsCardProps) => {
         {ARTISTS.map((artistGroup) => (
           <div key={artistGroup.group} className="flex flex-col gap-1">
             <h3
-              className={`flex items-center gap-1 text-foreground-primary text-md ${
+              className={`flex items-center gap-1 text-foreground-primary text-md" ${
                 artistGroup.externalLink
-                  ? 'hover:underline cursor-pointer group'
+                  ? 'hover:underline decoration-1 underline-offset-2 cursor-pointer group'
                   : ''
               }`}
               onClick={() =>
@@ -52,7 +52,7 @@ const ArtistsCard = (props: ArtistsCardProps) => {
                 window.open(artistGroup.externalLink, '_blank')
               }
             >
-              ~ {artistGroup.label}
+              {artistGroup.label}
               <div className="invisible group-hover:visible">
                 <ArrowIcon />
               </div>
