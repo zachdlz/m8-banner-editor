@@ -41,21 +41,23 @@ const ArtistsCard = (props: ArtistsCardProps) => {
       <div className="flex flex-col gap-3">
         {ARTISTS.map((artistGroup) => (
           <div key={artistGroup.group} className="flex flex-col gap-1">
-            <h3
-              className={`flex items-center gap-1 text-foreground-primary text-md" ${
-                artistGroup.externalLink
-                  ? 'hover:underline decoration-1 underline-offset-2 cursor-pointer group'
-                  : ''
-              }`}
-              onClick={() =>
-                artistGroup.externalLink &&
-                window.open(artistGroup.externalLink, '_blank')
-              }
-            >
-              {artistGroup.label}
-              <div className="invisible group-hover:visible">
-                <ArrowIcon />
-              </div>
+            <h3 className="text-foreground-primary text-md">
+              <span
+                className={`flex items-center gap-1 ${
+                  artistGroup.externalLink
+                    ? 'hover:underline decoration-1 underline-offset-2 cursor-pointer group w-fit'
+                    : ''
+                }`}
+                onClick={() =>
+                  artistGroup.externalLink &&
+                  window.open(artistGroup.externalLink, '_blank')
+                }
+              >
+                {artistGroup.label}
+                <div className="invisible group-hover:visible">
+                  <ArrowIcon />
+                </div>
+              </span>
             </h3>
             <div className="flex items-center gap-2">
               {artistGroup.banners.map((banner) => (
