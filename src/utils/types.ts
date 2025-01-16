@@ -1,5 +1,7 @@
+import { ARTISTS } from './constants';
+
 type Banner = {
-  group: string;
+  group: (typeof ARTISTS)[number]['group'];
   index: number;
 };
 
@@ -10,7 +12,7 @@ type SelectOption = {
 
 type Artist = {
   label: string;
-  group: string;
+  group: 'm8' | 'zhaak';
   externalLink?: string;
   banners: {
     cover: string;
@@ -23,4 +25,13 @@ type Artist = {
   }[];
 };
 
-export type { Banner, Artist, SelectOption };
+type Font = {
+  family: string;
+  url?: string;
+};
+
+type BannerFonts = {
+  [key: string]: (Record<Artist['inputs'][number]['id'], Font> | null)[];
+};
+
+export type { Banner, Artist, SelectOption, Font, BannerFonts };

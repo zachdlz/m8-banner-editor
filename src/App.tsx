@@ -4,7 +4,7 @@ import useImageUtils from './hooks/useImageUtils';
 
 import ArtistsCard from './components/artists-card';
 import PlaygroundCard from './components/playground-card';
-import PreviewCard from './components/preview-card.png';
+import PreviewCard from './components/preview-card';
 import Header from './components/header';
 import Footer from './components/footer';
 import { Banner } from './utils/types';
@@ -44,9 +44,12 @@ const App = () => {
           <PreviewCard
             username={username}
             role={role}
-            bannerUrl={getBannerUrl(selectedBanner, supporterLevel)}
             onDownload={handleDownload}
             onCopy={handleCopy}
+            selectedBanner={{
+              ...selectedBanner,
+              url: getBannerUrl(selectedBanner, supporterLevel),
+            }}
           />
           <PlaygroundCard
             username={username}

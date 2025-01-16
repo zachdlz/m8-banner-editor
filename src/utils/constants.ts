@@ -1,4 +1,4 @@
-import { type Artist } from './types';
+import { type BannerFonts, type Artist } from './types';
 
 import m8_1Img from '../assets/images/covers/m8_1.png';
 import m8_2Img from '../assets/images/covers/m8_2.png';
@@ -34,39 +34,39 @@ const ARTISTS: Artist[] = [
     inputs: [{ id: 'username', type: 'text' }],
     banners: [{ cover: zhaakImg, index: 1 }],
   },
-] as const;
+];
 
-const BANNER_FONTS = {
-  m8: {
-    1: {
+const BANNER_FONTS: BannerFonts = {
+  m8: [
+    null,
+    {
       username: {
         family: 'TuskerGrotesk',
         url: '../assets/fonts/TuskerGrotesk-4800Super.woff2',
       },
       role: {
         family: 'Helvetica',
-        url: null,
       },
     },
-    2: {
+    {
       username: {
         family: 'TuskerGrotesk',
         url: '../assets/fonts/TuskerGrotesk-4800Super.woff2',
       },
       role: {
         family: 'Helvetica',
-        url: null,
       },
     },
-  },
-  zhaak: {
-    1: {
+  ],
+  zhaak: [
+    null,
+    {
       username: {
         family: 'DharmaGothic',
         url: '../assets/fonts/DharmaGothic.woff2',
       },
     },
-  },
-} as const;
+  ],
+};
 
 export { ARTISTS, BANNER_FONTS };
