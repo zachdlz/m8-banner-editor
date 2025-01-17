@@ -1,11 +1,12 @@
 import toast from 'react-hot-toast';
-import { type Banner } from '../utils/types';
+import type { TextAttributes, Banner } from '../utils/types';
 
 type UseImageUtilsProps = {
   username?: string;
+  artist?: string;
 };
 
-const useImageUtils = ({ username }: UseImageUtilsProps = {}) => {
+const useImageUtils = ({ username, artist }: UseImageUtilsProps = {}) => {
   const BASE_WIDTH = 1500;
   const BASE_HEIGHT = 500;
   const ASPECT_RATIO = BASE_WIDTH / BASE_HEIGHT;
@@ -65,7 +66,7 @@ const useImageUtils = ({ username }: UseImageUtilsProps = {}) => {
     if (!tempCanvas) return;
 
     const link = document.createElement('a');
-    link.download = `m8-${username || 'banner'}.png`;
+    link.download = `m8-${username || 'banner'}${artist ? `-by-${artist}` : ''}.png`;
     link.href = tempCanvas.toDataURL('image/png');
     document.body.appendChild(link);
     link.click();
@@ -155,15 +156,24 @@ const useImageUtils = ({ username }: UseImageUtilsProps = {}) => {
   const getUsernameFontSize = (
     dimensions: { width: number },
     username: string,
+    font?: TextAttributes,
   ) => {
     const maxTextWidth = dimensions.width * 0.206;
-    const initialFontSize = dimensions.width * 0.045;
+    const initialFontSize = dimensions.width * (font?.sizeMultiplier || 0.045);
+
+    if (font?.fixedSize) return initialFontSize;
     return calculateFontSize(username, maxTextWidth, initialFontSize);
   };
 
-  const getRoleFontSize = (dimensions: { width: number }, role: string) => {
+  const getRoleFontSize = (
+    dimensions: { width: number },
+    role: string,
+    font?: TextAttributes,
+  ) => {
     const maxTextWidth = dimensions.width * 0.12;
-    const initialFontSize = dimensions.width * 0.016;
+    const initialFontSize = dimensions.width * (font?.sizeMultiplier || 0.016);
+
+    if (font?.fixedSize) return initialFontSize;
     return calculateFontSize(role, maxTextWidth, initialFontSize);
   };
 

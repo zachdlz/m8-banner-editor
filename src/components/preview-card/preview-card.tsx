@@ -116,12 +116,12 @@ const PreviewCard = (props: PreviewCardProps) => {
                       text={props.username}
                       x={
                         getImageDimensions(containerWidth, lastValidDimensions)
-                          .width * 0.778
+                          .width * (fonts?.username?.xMultiplier || 0.778)
                       }
                       y={
                         getImageDimensions(containerWidth, lastValidDimensions)
                           .height *
-                          0.34 +
+                          (fonts?.username?.yMultiplier || 0.34) +
                         (getImageDimensions(containerWidth, lastValidDimensions)
                           .width *
                           0.045 -
@@ -131,17 +131,19 @@ const PreviewCard = (props: PreviewCardProps) => {
                               lastValidDimensions,
                             ),
                             props.username,
+                            fonts?.username,
                           ))
                       }
                       fontSize={getUsernameFontSize(
                         getImageDimensions(containerWidth, lastValidDimensions),
                         props.username,
+                        fonts?.username,
                       )}
                       fontFamily={fonts?.username?.family || 'TuskerGrotesk'}
                       fill="#1e1d1e"
                       width={
                         getImageDimensions(containerWidth, lastValidDimensions)
-                          .width * 0.206
+                          .width * (fonts?.username?.maxWidth || 0.206)
                       }
                       align="right"
                       wrap="none"
@@ -150,22 +152,23 @@ const PreviewCard = (props: PreviewCardProps) => {
                       text={props.role}
                       x={
                         getImageDimensions(containerWidth, lastValidDimensions)
-                          .width * 0.795
+                          .width * (fonts?.role?.xMultiplier || 0.795)
                       }
                       y={
                         getImageDimensions(containerWidth, lastValidDimensions)
-                          .height * 0.48
+                          .height * (fonts?.role?.yMultiplier || 0.48)
                       }
                       fontSize={getRoleFontSize(
                         getImageDimensions(containerWidth, lastValidDimensions),
                         props.role,
+                        fonts?.role,
                       )}
                       fontFamily={fonts?.role?.family || 'Helvetica'}
                       fontVariant="bold"
                       fill="#1e1d1e"
                       width={
                         getImageDimensions(containerWidth, lastValidDimensions)
-                          .width * 0.188
+                          .width * (fonts?.role?.maxWidth || 0.188)
                       }
                       fontStyle="italic"
                       align="right"

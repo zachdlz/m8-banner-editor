@@ -1,7 +1,7 @@
 import { EraseIcon } from '../../assets/icons';
 import Button from '../buttons';
 import TextInput from '../text-input';
-import { type Banner, type Artist } from '../../utils/types';
+import type { Banner, Artist, SelectInput } from '../../utils/types';
 import { firstUpperCase, inputExist } from '../../utils/utils';
 import Select from '../select-input';
 
@@ -17,6 +17,8 @@ type PlaygroundCardProps = {
 };
 
 const PlaygroundCard = (props: PlaygroundCardProps) => {
+  console.log(props.inputs);
+
   return (
     <div className="order-2 xl:order-none min-w-[280px] bg-white border border-border rounded-lg px-5 pt-4 pb-5 flex flex-col gap-3 font-figtree">
       <h2 className="text-foreground-primary text-lg font-bold font-figtree">
@@ -26,7 +28,7 @@ const PlaygroundCard = (props: PlaygroundCardProps) => {
         {inputExist(props.selectedBanner.group, 'username') && (
           <TextInput
             label="Ton pseudo"
-            helperText="Maximum 15 caractères"
+            helperText="Maximum 15 caractères "
             maxLength={15}
             placeholder="SOUEEZIE"
             value={props.username}
@@ -50,8 +52,10 @@ const PlaygroundCard = (props: PlaygroundCardProps) => {
             id="supporter-level"
             label="Niveau de soutien"
             options={
-              props.inputs.find((input) => input.id === 'supporter-level')
-                ?.options ?? []
+              props.inputs.find(
+                (input): input is SelectInput =>
+                  input.id === 'supporter-level' && input.type === 'select',
+              )?.options ?? []
             }
             value={{
               value: props.supporterLevel,

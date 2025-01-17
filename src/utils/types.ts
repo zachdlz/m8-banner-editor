@@ -10,6 +10,20 @@ type SelectOption = {
   label: string;
 };
 
+type TextInput = {
+  id: string;
+  type: 'text';
+  maxChars?: string;
+};
+
+type SelectInput = {
+  id: string;
+  type: 'select';
+  options: SelectOption[];
+};
+
+type Input = TextInput | SelectInput;
+
 type Artist = {
   label: string;
   group: 'm8' | 'zhaak';
@@ -18,20 +32,31 @@ type Artist = {
     cover: string;
     index: number;
   }[];
-  inputs: {
-    id: string;
-    type: 'text' | 'select';
-    options?: SelectOption[];
-  }[];
+  inputs: Input[];
 };
 
-type Font = {
+type TextAttributes = {
   family: string;
   url?: string;
+  maxWidth: number;
+  sizeMultiplier: number;
+  fixedSize?: boolean;
+  xMultiplier: number;
+  yMultiplier: number;
 };
 
 type BannerFonts = {
-  [key: string]: (Record<Artist['inputs'][number]['id'], Font> | null)[];
+  [key: string]: (Record<
+    Artist['inputs'][number]['id'],
+    TextAttributes
+  > | null)[];
 };
 
-export type { Banner, Artist, SelectOption, Font, BannerFonts };
+export type {
+  Banner,
+  Artist,
+  SelectOption,
+  TextAttributes,
+  BannerFonts,
+  SelectInput,
+};

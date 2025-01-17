@@ -21,6 +21,7 @@ const App = () => {
 
   const { handleDownload, handleCopy, getBannerUrl } = useImageUtils({
     username,
+    artist: selectedBanner.group,
   });
 
   return (
