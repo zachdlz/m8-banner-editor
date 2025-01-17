@@ -2,7 +2,7 @@ import { EraseIcon } from '../../assets/icons';
 import Button from '../buttons';
 import TextInput from '../text-input';
 import type { Banner, Artist, SelectInput } from '../../utils/types';
-import { firstUpperCase, inputExist } from '../../utils/utils';
+import { firstUpperCase, getInput, inputExist } from '../../utils/utils';
 import Select from '../select-input';
 
 type PlaygroundCardProps = {
@@ -17,7 +17,8 @@ type PlaygroundCardProps = {
 };
 
 const PlaygroundCard = (props: PlaygroundCardProps) => {
-  console.log(props.inputs);
+  const usernameInput = getInput(props.selectedBanner.group, 'username');
+  const roleInput = getInput(props.selectedBanner.group, 'role');
 
   return (
     <div className="order-2 xl:order-none min-w-[280px] bg-white border border-border rounded-lg px-5 pt-4 pb-5 flex flex-col gap-3 font-figtree">
@@ -25,22 +26,38 @@ const PlaygroundCard = (props: PlaygroundCardProps) => {
         Playground
       </h2>
       <div className="flex flex-col gap-1">
-        {inputExist(props.selectedBanner.group, 'username') && (
+        {usernameInput && (
           <TextInput
             label="Ton pseudo"
-            helperText="Maximum 15 caractères "
-            maxLength={15}
+            helperText={
+              usernameInput?.type === 'text' && usernameInput.maxChars
+                ? `Maximum ${usernameInput.maxChars} caractères`
+                : "Longueur limitée à l'espace disponible"
+            }
+            maxLength={
+              usernameInput?.type === 'text' && usernameInput.maxChars
+                ? usernameInput.maxChars
+                : undefined
+            }
             placeholder="SOUEEZIE"
             value={props.username}
             onChange={(value) => props.onUsernameChange(value)}
           />
         )}
 
-        {inputExist(props.selectedBanner.group, 'role') && (
+        {roleInput && (
           <TextInput
             label="Ton rôle"
-            helperText="Maximum 30 caractères"
-            maxLength={30}
+            helperText={
+              roleInput?.type === 'text' && roleInput.maxChars
+                ? `Maximum ${roleInput.maxChars} caractères`
+                : "Longueur limitée à l'espace disponible"
+            }
+            maxLength={
+              roleInput?.type === 'text' && roleInput.maxChars
+                ? roleInput.maxChars
+                : undefined
+            }
             placeholder="CEO OF LEAK"
             value={props.role}
             onChange={(value) => props.onRoleChange(value)}

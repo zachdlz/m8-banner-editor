@@ -13,7 +13,7 @@ type SelectOption = {
 type TextInput = {
   id: string;
   type: 'text';
-  maxChars?: string;
+  maxChars?: number;
 };
 
 type SelectInput = {
@@ -59,4 +59,5 @@ export type {
   TextAttributes,
   BannerFonts,
   SelectInput,
+  TextInput,
 };

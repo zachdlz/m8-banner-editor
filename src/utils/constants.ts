@@ -14,8 +14,8 @@ const ARTISTS: Artist[] = [
       { cover: m8_2Img, index: 2 },
     ],
     inputs: [
-      { id: 'username', type: 'text' },
-      { id: 'role', type: 'text' },
+      { id: 'username', type: 'text', maxChars: 15 },
+      { id: 'role', type: 'text', maxChars: 30 },
       {
         id: 'supporter-level',
         type: 'select',
@@ -31,7 +31,7 @@ const ARTISTS: Artist[] = [
     label: 'Zhaak',
     group: 'zhaak',
     externalLink: 'https://zhaak.fr',
-    inputs: [{ id: 'username', type: 'text', maxChars: '5-8' }],
+    inputs: [{ id: 'username', type: 'text' }],
     banners: [{ cover: zhaakImg, index: 1 }],
   },
 ];
@@ -82,8 +82,8 @@ const BANNER_FONTS: BannerFonts = {
         url: '../assets/fonts/DharmaGothic.woff2',
         sizeMultiplier: 0.08,
         fixedSize: true,
-        maxWidth: 0.25,
-        xMultiplier: 0.61,
+        maxWidth: 0.27,
+        xMultiplier: 0.587,
         yMultiplier: 0.48,
       },
     },
