@@ -140,12 +140,12 @@ const PreviewCard = (props: PreviewCardProps) => {
                         fonts?.username,
                       )}
                       fontFamily={fonts?.username?.family || 'TuskerGrotesk'}
-                      fill="#1e1d1e"
+                      fill={fonts?.username?.color || '#ffffff'}
                       width={
                         getImageDimensions(containerWidth, lastValidDimensions)
                           .width * (fonts?.username?.maxWidth || 0.206)
                       }
-                      align="right"
+                      align={fonts?.username?.textAlign || 'left'}
                       wrap="none"
                     />
                     <Text
@@ -165,13 +165,13 @@ const PreviewCard = (props: PreviewCardProps) => {
                       )}
                       fontFamily={fonts?.role?.family || 'Helvetica'}
                       fontVariant="bold"
-                      fill="#1e1d1e"
+                      fill={fonts?.username?.color || '#ffffff'}
                       width={
                         getImageDimensions(containerWidth, lastValidDimensions)
                           .width * (fonts?.role?.maxWidth || 0.188)
                       }
                       fontStyle="italic"
-                      align="right"
+                      align={fonts?.role?.textAlign || 'left'}
                       wrap="none"
                     />
                   </>

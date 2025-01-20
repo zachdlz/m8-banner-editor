@@ -26,7 +26,7 @@ type Input = TextInput | SelectInput;
 
 type Artist = {
   label: string;
-  group: 'm8' | 'zhaak';
+  group: 'm8' | 'zhaak' | 'juiceez';
   externalLink?: string;
   banners: {
     cover: string;
@@ -38,6 +38,8 @@ type Artist = {
 type TextAttributes = {
   family: string;
   url?: string;
+  color?: string;
+  textAlign?: 'left' | 'right' | 'center';
   maxWidth: number;
   sizeMultiplier: number;
   fixedSize?: boolean;

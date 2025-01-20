@@ -3,6 +3,7 @@ import { type BannerFonts, type Artist } from './types';
 import m8_1Img from '../assets/images/covers/m8_1.png';
 import m8_2Img from '../assets/images/covers/m8_2.png';
 import zhaakImg from '../assets/images/covers/zhaak_1.png';
+import juiceezImg from '../assets/images/covers/juiceez_1.png';
 
 const ARTISTS: Artist[] = [
   {
@@ -34,6 +35,13 @@ const ARTISTS: Artist[] = [
     inputs: [{ id: 'username', type: 'text' }],
     banners: [{ cover: zhaakImg, index: 1 }],
   },
+  {
+    label: 'Juiceez',
+    group: 'juiceez',
+    externalLink: 'https://juiceez.fr',
+    inputs: [{ id: 'username', type: 'text', maxChars: 15 }],
+    banners: [{ cover: juiceezImg, index: 1 }],
+  },
 ];
 
 const BANNER_FONTS: BannerFonts = {
@@ -43,34 +51,42 @@ const BANNER_FONTS: BannerFonts = {
       username: {
         family: 'TuskerGrotesk',
         url: '../assets/fonts/TuskerGrotesk-4800Super.woff2',
+        color: '#1e1d1e',
         sizeMultiplier: 0.045,
         maxWidth: 0.206,
         xMultiplier: 0.778,
         yMultiplier: 0.34,
+        textAlign: 'right',
       },
       role: {
         family: 'Helvetica',
+        color: '#1e1d1e',
         sizeMultiplier: 0.016,
         maxWidth: 0.188,
         xMultiplier: 0.795,
         yMultiplier: 0.48,
+        textAlign: 'right',
       },
     },
     {
       username: {
         family: 'TuskerGrotesk',
         url: '../assets/fonts/TuskerGrotesk-4800Super.woff2',
+        color: '#1e1d1e',
         sizeMultiplier: 0.045,
         maxWidth: 0.206,
         xMultiplier: 0.778,
         yMultiplier: 0.34,
+        textAlign: 'right',
       },
       role: {
         family: 'Helvetica',
+        color: '#1e1d1e',
         sizeMultiplier: 0.016,
         maxWidth: 0.188,
         xMultiplier: 0.795,
         yMultiplier: 0.48,
+        textAlign: 'right',
       },
     },
   ],
@@ -80,11 +96,27 @@ const BANNER_FONTS: BannerFonts = {
       username: {
         family: 'DharmaGothic',
         url: '../assets/fonts/DharmaGothic.woff2',
+        color: '#000000',
         sizeMultiplier: 0.08,
         fixedSize: true,
         maxWidth: 0.27,
         xMultiplier: 0.587,
         yMultiplier: 0.48,
+        textAlign: 'right',
+      },
+    },
+  ],
+  juiceez: [
+    null,
+    {
+      username: {
+        family: 'TuskerGrotesk',
+        url: '../assets/fonts/TuskerGrotesk-4800Super.woff2',
+        color: '#FFFFFF',
+        sizeMultiplier: 0.05,
+        maxWidth: 0.17,
+        xMultiplier: 0.02,
+        yMultiplier: 0.35,
       },
     },
   ],
