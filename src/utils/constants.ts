@@ -43,7 +43,6 @@ const ARTISTS: Artist[] = [
   {
     label: 'Juiceez',
     group: 'juiceez',
-    externalLink: 'https://juiceez.fr',
     inputs: [{ id: 'username', type: 'text', maxChars: 15 }],
     banners: [{ cover: juiceezImg, index: 1 }],
   },
