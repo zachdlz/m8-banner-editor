@@ -43,6 +43,7 @@ const ARTISTS: Artist[] = [
   {
     label: 'Juiceez',
     group: 'juiceez',
+    externalLink: 'https://discordapp.com/users/531862152047230986',
     inputs: [{ id: 'username', type: 'text', maxChars: 15 }],
     banners: [{ cover: juiceezImg, index: 1 }],
   },
