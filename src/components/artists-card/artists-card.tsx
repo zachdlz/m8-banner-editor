@@ -40,10 +40,7 @@ const ArtistsCard = (props: ArtistsCardProps) => {
       </h2>
       <div className="flex flex-row flex-wrap gap-3">
         {ARTISTS.map((artistGroup) => (
-          <div
-            key={artistGroup.group}
-            className="flex flex-col gap-1 min-w-[140px]"
-          >
+          <div key={artistGroup.group} className="flex flex-col gap-1 mr-2">
             <h3 className="text-foreground-primary text-md">
               <span
                 className={`flex items-center gap-1 ${
