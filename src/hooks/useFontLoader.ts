@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { BANNER_FONTS } from '../utils/constants';
 import { type Banner } from '../utils/types';
 
+const loadedFonts = new Set<string>();
+
 export const useFontLoader = (banner: Banner) => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
@@ -16,8 +18,9 @@ export const useFontLoader = (banner: Banner) => {
     const loadFonts = async () => {
       try {
         const fontPromises = Object.values(fonts)
-          .filter((font) => font?.url)
+          .filter((font) => font?.url && !loadedFonts.has(font.family))
           .map((font) => {
+            loadedFonts.add(font.family);
             const fontFace = new FontFace(
               font.family,
               `url(${new URL(font.url!, import.meta.url).href})`,
@@ -27,7 +30,9 @@ export const useFontLoader = (banner: Banner) => {
             });
           });
 
-        await Promise.all(fontPromises);
+        if (fontPromises.length > 0) {
+          await Promise.all(fontPromises);
+        }
         setFontsLoaded(true);
       } catch (err) {
         console.error('Erreur de chargement des polices:', err);
