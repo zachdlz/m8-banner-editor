@@ -1,9 +1,14 @@
 import { type BannerFonts, type Artist } from './types';
 
+// import covers
 import m8_1Img from '../assets/images/covers/m8_1.png';
 import m8_2Img from '../assets/images/covers/m8_2.png';
 import zhaakImg from '../assets/images/covers/zhaak_1.png';
 import juiceezImg from '../assets/images/covers/juiceez_1.png';
+
+// import fonts
+import tuskerGrotesk from '../assets/fonts/TuskerGrotesk-4800Super.woff2';
+import dharmaGothic from '../assets/fonts/DharmaGothic.woff2';
 
 const ARTISTS: Artist[] = [
   {
@@ -50,7 +55,7 @@ const BANNER_FONTS: BannerFonts = {
     {
       username: {
         family: 'TuskerGrotesk',
-        url: '../assets/fonts/TuskerGrotesk-4800Super.woff2',
+        url: tuskerGrotesk,
         color: '#1e1d1e',
         sizeMultiplier: 0.045,
         maxWidth: 0.206,
@@ -71,7 +76,7 @@ const BANNER_FONTS: BannerFonts = {
     {
       username: {
         family: 'TuskerGrotesk',
-        url: '../assets/fonts/TuskerGrotesk-4800Super.woff2',
+        url: tuskerGrotesk,
         color: '#1e1d1e',
         sizeMultiplier: 0.045,
         maxWidth: 0.206,
@@ -95,7 +100,7 @@ const BANNER_FONTS: BannerFonts = {
     {
       username: {
         family: 'DharmaGothic',
-        url: '../assets/fonts/DharmaGothic.woff2',
+        url: dharmaGothic,
         color: '#000000',
         sizeMultiplier: 0.08,
         fixedSize: true,
@@ -111,7 +116,7 @@ const BANNER_FONTS: BannerFonts = {
     {
       username: {
         family: 'TuskerGrotesk',
-        url: '../assets/fonts/TuskerGrotesk-4800Super.woff2',
+        url: tuskerGrotesk,
         color: '#FFFFFF',
         sizeMultiplier: 0.05,
         maxWidth: 0.17,

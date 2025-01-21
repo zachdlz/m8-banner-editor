@@ -17,12 +17,12 @@ const useImageUtils = ({ username, artist }: UseImageUtilsProps = {}) => {
   ) => {
     if (!selectedBanner) return '';
 
-    return new URL(
-      `../assets/images/banners/${selectedBanner.group}_${selectedBanner.index || 1}${
-        supporterLevel ? `_${supporterLevel}` : ''
-      }.png`,
-      import.meta.url,
-    ).href;
+    const bannerPath = `${selectedBanner.group}_${selectedBanner.index || 1}${
+      supporterLevel ? `_${supporterLevel}` : ''
+    }.png`;
+
+    return new URL(`../assets/images/banners/${bannerPath}`, import.meta.url)
+      .href;
   };
 
   const drawSizedImage = () => {
