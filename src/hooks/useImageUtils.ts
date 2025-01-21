@@ -158,7 +158,7 @@ const useImageUtils = ({ username, artist }: UseImageUtilsProps = {}) => {
     username: string,
     font?: TextAttributes,
   ) => {
-    const maxTextWidth = dimensions.width * 0.206;
+    const maxTextWidth = dimensions.width * (font?.maxWidth || 0.206);
     const initialFontSize = dimensions.width * (font?.sizeMultiplier || 0.045);
 
     if (font?.fixedSize) return initialFontSize;

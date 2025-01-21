@@ -165,7 +165,7 @@ const PreviewCard = (props: PreviewCardProps) => {
                       )}
                       fontFamily={fonts?.role?.family || 'Helvetica'}
                       fontVariant="bold"
-                      fill={fonts?.username?.color || '#ffffff'}
+                      fill={fonts?.role?.color || '#ffffff'}
                       width={
                         getImageDimensions(containerWidth, lastValidDimensions)
                           .width * (fonts?.role?.maxWidth || 0.188)
