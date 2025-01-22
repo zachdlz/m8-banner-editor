@@ -3,7 +3,8 @@ import { type BannerFonts, type Artist } from './types';
 // import covers
 import m8_1Img from '../assets/images/covers/m8_1.png';
 import m8_2Img from '../assets/images/covers/m8_2.png';
-import zhaakImg from '../assets/images/covers/zhaak_1.png';
+import zhaak1Img from '../assets/images/covers/zhaak_1.png';
+import zhaak2Img from '../assets/images/covers/zhaak_2.png';
 import juiceezImg from '../assets/images/covers/juiceez_1.png';
 
 // import fonts
@@ -38,7 +39,10 @@ const ARTISTS: Artist[] = [
     group: 'zhaak',
     externalLink: 'https://zhaak.fr',
     inputs: [{ id: 'username', type: 'text' }],
-    banners: [{ cover: zhaakImg, index: 1 }],
+    banners: [
+      { cover: zhaak1Img, index: 1 },
+      { cover: zhaak2Img, index: 2 },
+    ],
   },
   {
     label: 'Juiceez',
@@ -107,6 +111,19 @@ const BANNER_FONTS: BannerFonts = {
         maxWidth: 0.27,
         xMultiplier: 0.587,
         yMultiplier: 0.48,
+        textAlign: 'right',
+      },
+    },
+    {
+      username: {
+        family: 'DharmaGothic',
+        url: dharmaGothic,
+        color: '#B1FC10',
+        sizeMultiplier: 0.08,
+        fixedSize: true,
+        maxWidth: 0.29,
+        xMultiplier: 0.57,
+        yMultiplier: 0.46,
         textAlign: 'right',
       },
     },
