@@ -16,3 +16,4 @@ Please refer to the [LICENSE.md](./LICENSE.md) file for details.
 - Add various artists and banners
 - Website translation to EN
 - Migration to Next for SEO
+- Add themes 
