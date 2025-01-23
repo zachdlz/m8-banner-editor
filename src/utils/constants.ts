@@ -6,10 +6,12 @@ import m8_2Img from '../assets/images/covers/m8_2.png';
 import zhaak1Img from '../assets/images/covers/zhaak_1.png';
 import zhaak2Img from '../assets/images/covers/zhaak_2.png';
 import juiceezImg from '../assets/images/covers/juiceez_1.png';
+import yutahImg from '../assets/images/covers/yutah_1.png';
 
 // import fonts
 import tuskerGrotesk from '../assets/fonts/TuskerGrotesk-4800Super.woff2';
 import dharmaGothic from '../assets/fonts/DharmaGothic.woff2';
+import futureFriends from '../assets/fonts/FutureFriends.ttf';
 
 const ARTISTS: Artist[] = [
   {
@@ -38,7 +40,7 @@ const ARTISTS: Artist[] = [
     label: 'Zhaak',
     group: 'zhaak',
     externalLink: 'https://zhaak.fr',
-    inputs: [{ id: 'username', type: 'text' }],
+    inputs: [{ id: 'username', type: 'text', placeholder: 'ZHAAK' }],
     banners: [
       { cover: zhaak1Img, index: 1 },
       { cover: zhaak2Img, index: 2 },
@@ -48,8 +50,24 @@ const ARTISTS: Artist[] = [
     label: 'Juiceez',
     group: 'juiceez',
     externalLink: 'https://discordapp.com/users/531862152047230986',
-    inputs: [{ id: 'username', type: 'text', maxChars: 15 }],
+    inputs: [
+      { id: 'username', type: 'text', maxChars: 15, placeholder: 'M8 JUICEEZ' },
+    ],
     banners: [{ cover: juiceezImg, index: 1 }],
+  },
+  {
+    label: 'Yutah',
+    group: 'yutah',
+    externalLink: 'https://www.behance.net/YutahVisuals',
+    inputs: [
+      {
+        id: 'username',
+        type: 'text',
+        maxChars: 15,
+        placeholder: 'M8 YUTAH',
+      },
+    ],
+    banners: [{ cover: yutahImg, index: 1 }],
   },
 ];
 
@@ -139,6 +157,21 @@ const BANNER_FONTS: BannerFonts = {
         maxWidth: 0.17,
         xMultiplier: 0.02,
         yMultiplier: 0.35,
+      },
+    },
+  ],
+  yutah: [
+    null,
+    {
+      username: {
+        family: 'FutureFriends',
+        url: futureFriends,
+        color: '#E6E6E5',
+        sizeMultiplier: 0.03,
+        maxWidth: 0.28,
+        xMultiplier: 0.65,
+        yMultiplier: 0.43,
+        textAlign: 'center',
       },
     },
   ],

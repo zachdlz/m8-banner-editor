@@ -14,6 +14,7 @@ type TextInput = {
   id: string;
   type: 'text';
   maxChars?: number;
+  placeholder?: string;
 };
 
 type SelectInput = {
@@ -26,7 +27,7 @@ type Input = TextInput | SelectInput;
 
 type Artist = {
   label: string;
-  group: 'm8' | 'zhaak' | 'juiceez';
+  group: 'm8' | 'zhaak' | 'juiceez' | 'yutah';
   externalLink?: string;
   banners: {
     cover: string;

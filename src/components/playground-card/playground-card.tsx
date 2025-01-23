@@ -39,7 +39,10 @@ const PlaygroundCard = (props: PlaygroundCardProps) => {
                 ? usernameInput.maxChars
                 : undefined
             }
-            placeholder="SOUEEZIE"
+            placeholder={
+              (usernameInput?.type === 'text' && usernameInput.placeholder) ||
+              'SOUEEZIE'
+            }
             value={props.username}
             onChange={(value) => props.onUsernameChange(value)}
           />
