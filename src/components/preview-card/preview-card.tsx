@@ -72,7 +72,7 @@ const PreviewCard = (props: PreviewCardProps) => {
   const isLoaded = fontsLoaded && imageStatus === 'loaded';
 
   return (
-    <div className="order-1 xl:order-none w-full xl:w-[80%] border border-transparent rounded-lg bg-grid bg-repeat bg-center bg-cover relative font-figtree flex flex-col h-full overflow-x-hidden">
+    <div className="order-1 xl:order-none w-full xl:w-[80%] rounded-lg bg-grid bg-repeat bg-center bg-cover relative font-figtree flex flex-col h-full overflow-x-hidden">
       <h2 className="text-foreground-primary text-lg font-bold font-cal text-center pt-4">
         Prévisualisation
       </h2>
@@ -181,7 +181,7 @@ const PreviewCard = (props: PreviewCardProps) => {
           )}
         </div>
       </div>
-      <div className="flex justify-between items-center bg-black/15 px-5 py-5 rounded-b-lg mt-auto">
+      <div className="flex justify-between items-center bg-black/15 px-5 py-5 rounded-b-lg mt-auto border border-transparent">
         <p className="text-foreground-primary text-sm">
           Taille : <span className="font-bold">1500x500</span>
         </p>
