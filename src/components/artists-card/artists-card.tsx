@@ -34,7 +34,7 @@ const ArtistImage = memo(
 
 const ArtistsCard = (props: ArtistsCardProps) => {
   return (
-    <div className="order-3 xl:order-none xl:max-w-[170px] min-w-[170px] bg-white border border-border rounded-lg px-5 pt-4 pb-5 flex flex-col gap-3 font-figtree">
+    <div className="order-3 xl:order-none xl:max-w-[170px] min-w-[170px] bg-white border border-border rounded-lg px-5 pt-4 pb-5 flex flex-col gap-3 font-figtree xl:max-h-[442px] xl:overflow-y-auto">
       <h2 className="text-foreground-primary text-lg font-bold font-cal">
         Artistes
       </h2>
