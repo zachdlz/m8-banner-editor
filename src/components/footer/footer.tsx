@@ -12,23 +12,15 @@ const Footer = () => {
         <GithubIcon />
       </a>
       <p>
-        Outil 100% gratuit. Développé par{' '}
+        Outil 100% gratuit. <br className="sm:hidden" />
+        Projet soutenu par{' '}
         <a
-          href="https://x.com/ZzAK_K"
-          className="font-semibold"
+          href="https://thegreensuits.fr"
           target="_blank"
           rel="noopener noreferrer"
+          className="w-fit mx-auto font-semibold"
         >
-          @ZzAK_K
-        </a>
-        , designé par{' '}
-        <a
-          href="https://x.com/reaiucas"
-          className="font-semibold"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          @reaiucas
+          The Green Suits
         </a>
         .
       </p>
