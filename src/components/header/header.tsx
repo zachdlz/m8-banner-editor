@@ -21,8 +21,8 @@ const Header = () => {
           rel="noopener noreferrer"
         >
           @ZzAK_K
-        </a>{' '}
-        and{' '}
+        </a>
+        , design by{' '}
         <a
           href="https://x.com/reaiucas"
           className="font-semibold"
