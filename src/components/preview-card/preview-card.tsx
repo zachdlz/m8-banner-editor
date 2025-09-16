@@ -146,7 +146,16 @@ const PreviewCard = (props: PreviewCardProps) => {
                           .width * (fonts?.username?.maxWidth || 0.206)
                       }
                       align={fonts?.username?.textAlign || 'left'}
-                      letterSpacing={fonts?.username?.letterSpacing || 1}
+                      letterSpacing={
+                        fonts?.username?.letterSpacing
+                          ? (fonts.username.letterSpacing *
+                              getImageDimensions(
+                                containerWidth,
+                                lastValidDimensions,
+                              ).width) /
+                            1500
+                          : 1
+                      }
                       wrap="none"
                     />
                     <Text

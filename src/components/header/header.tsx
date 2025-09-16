@@ -10,7 +10,7 @@ const Header = () => {
           Gentle Mates,
         </span>
         <br />
-        <span className="text-foreground-accent">en quelques clics</span>
+        <span className="text-foreground-accent">en quelques clics.</span>
       </h1>
       <p className="text-foreground-accent text-xs text-center mt-5 py-1.5 px-3 bg-background-accent rounded-full w-fit mx-auto">
         Made with 🩷 by{' '}

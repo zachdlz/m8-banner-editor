@@ -202,7 +202,7 @@ const BANNER_FONTS: BannerFonts = {
         xMultiplier: 0.32,
         yMultiplier: 0.46,
         textAlign: 'center',
-        letterSpacing: 20,
+        letterSpacing: 40,
       },
     },
   ],
