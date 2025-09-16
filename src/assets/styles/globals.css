@@ -30,12 +30,12 @@ body {
 :root {
   --bg-primary: #f5f8fb;
   --bg-secondary: #ffffff;
-  --bg-accent: rgba(51, 193, 0, 0.2);
+  --bg-accent: rgba(233, 41, 140, 0.2);
 
   --border-color: rgba(67, 67, 67, 0.2);
 
   --text-primary: #0f0f0f;
   --text-secondary: #bbc5d4;
-  --text-accent: #33c100;
-  --text-accent-hover: #2fb100;
+  --text-accent: #e9298c;
+  --text-accent-hover: #d4016f;
 }

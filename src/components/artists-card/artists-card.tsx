@@ -34,13 +34,13 @@ const ArtistImage = memo(
 
 const ArtistsCard = (props: ArtistsCardProps) => {
   return (
-    <div className="order-3 xl:order-none xl:max-w-[170px] min-w-[170px] bg-white border border-border rounded-lg px-5 pt-4 pb-5 flex flex-col gap-3 font-figtree">
+    <div className="relative order-3 xl:order-none xl:max-w-[170px] min-w-[170px] bg-white border border-border rounded-lg px-5 pt-4 flex flex-col gap-3 font-figtree xl:max-h-[442px] xl:overflow-y-auto">
       <h2 className="text-foreground-primary text-lg font-bold font-cal">
         Artistes
       </h2>
       <div className="flex flex-row flex-wrap gap-3">
         {ARTISTS.map((artistGroup) => (
-          <div key={artistGroup.group} className="flex flex-col gap-1 mr-2">
+          <div key={artistGroup.group} className="flex flex-col mr-2">
             <h3 className="text-foreground-primary text-md">
               <span
                 className={`flex items-center gap-1 ${
@@ -81,6 +81,7 @@ const ArtistsCard = (props: ArtistsCardProps) => {
           </div>
         ))}
       </div>
+      <div className="sticky bottom-0 w-full h-10 shrink-0 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
     </div>
   );
 };

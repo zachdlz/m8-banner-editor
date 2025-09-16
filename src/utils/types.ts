@@ -27,7 +27,7 @@ type Input = TextInput | SelectInput;
 
 type Artist = {
   label: string;
-  group: 'm8' | 'zhaak' | 'juiceez' | 'yutah';
+  group: 'm8' | 'zhaak' | 'juiceez' | 'yutah' | 'wazakiss';
   externalLink?: string;
   banners: {
     cover: string;
@@ -46,6 +46,7 @@ type TextAttributes = {
   fixedSize?: boolean;
   xMultiplier: number;
   yMultiplier: number;
+  letterSpacing?: number;
 };
 
 type BannerFonts = {

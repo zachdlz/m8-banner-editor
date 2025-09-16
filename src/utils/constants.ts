@@ -7,11 +7,13 @@ import zhaak1Img from '../assets/images/covers/zhaak_1.png';
 import zhaak2Img from '../assets/images/covers/zhaak_2.png';
 import juiceezImg from '../assets/images/covers/juiceez_1.png';
 import yutahImg from '../assets/images/covers/yutah_1.png';
+import wazakissImg from '../assets/images/covers/wazakiss_1.png';
 
 // import fonts
 import tuskerGrotesk from '../assets/fonts/TuskerGrotesk-4800Super.woff2';
 import dharmaGothic from '../assets/fonts/DharmaGothic.woff2';
 import futureFriends from '../assets/fonts/FutureFriends.ttf';
+import helveticaNeue from '../assets/fonts/HelveticaNeueLTProMdCn.otf';
 
 const ARTISTS: Artist[] = [
   {
@@ -68,6 +70,20 @@ const ARTISTS: Artist[] = [
       },
     ],
     banners: [{ cover: yutahImg, index: 1 }],
+  },
+  {
+    label: 'Wazakiss',
+    group: 'wazakiss',
+    externalLink: 'https://linktr.ee/Wazakiss.Design',
+    inputs: [
+      {
+        id: 'username',
+        type: 'text',
+        maxChars: 11,
+        placeholder: 'WAZAKISS',
+      },
+    ],
+    banners: [{ cover: wazakissImg, index: 1 }],
   },
 ];
 
@@ -172,6 +188,21 @@ const BANNER_FONTS: BannerFonts = {
         xMultiplier: 0.65,
         yMultiplier: 0.43,
         textAlign: 'center',
+      },
+    },
+  ],
+  wazakiss: [
+    null,
+    {
+      username: {
+        family: 'HelveticaNeue',
+        url: helveticaNeue,
+        sizeMultiplier: 0.07,
+        maxWidth: 0.7,
+        xMultiplier: 0.32,
+        yMultiplier: 0.46,
+        textAlign: 'center',
+        letterSpacing: 40,
       },
     },
   ],
