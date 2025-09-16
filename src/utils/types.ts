@@ -46,6 +46,7 @@ type TextAttributes = {
   fixedSize?: boolean;
   xMultiplier: number;
   yMultiplier: number;
+  letterSpacing?: number;
 };
 
 type BannerFonts = {
