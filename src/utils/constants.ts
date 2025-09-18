@@ -7,7 +7,8 @@ import zhaak1Img from '../assets/images/covers/zhaak_1.png';
 import zhaak2Img from '../assets/images/covers/zhaak_2.png';
 import juiceezImg from '../assets/images/covers/juiceez_1.png';
 import yutahImg from '../assets/images/covers/yutah_1.png';
-import wazakissImg from '../assets/images/covers/wazakiss_1.png';
+import wazakiss1Img from '../assets/images/covers/wazakiss_1.png';
+import wazakiss2Img from '../assets/images/covers/wazakiss_2.png';
 
 // import fonts
 import tuskerGrotesk from '../assets/fonts/TuskerGrotesk-4800Super.woff2';
@@ -49,6 +50,23 @@ const ARTISTS: Artist[] = [
     ],
   },
   {
+    label: 'Wazakiss',
+    group: 'wazakiss',
+    externalLink: 'https://linktr.ee/Wazakiss.Design',
+    inputs: [
+      {
+        id: 'username',
+        type: 'text',
+        maxChars: 11,
+        placeholder: 'WAZAKISS',
+      },
+    ],
+    banners: [
+      { cover: wazakiss1Img, index: 1 },
+      { cover: wazakiss2Img, index: 2 },
+    ],
+  },
+  {
     label: 'Juiceez',
     group: 'juiceez',
     externalLink: 'https://x.com/Its_Juiceez',
@@ -70,20 +88,6 @@ const ARTISTS: Artist[] = [
       },
     ],
     banners: [{ cover: yutahImg, index: 1 }],
-  },
-  {
-    label: 'Wazakiss',
-    group: 'wazakiss',
-    externalLink: 'https://linktr.ee/Wazakiss.Design',
-    inputs: [
-      {
-        id: 'username',
-        type: 'text',
-        maxChars: 11,
-        placeholder: 'WAZAKISS',
-      },
-    ],
-    banners: [{ cover: wazakissImg, index: 1 }],
   },
 ];
 
@@ -193,6 +197,18 @@ const BANNER_FONTS: BannerFonts = {
   ],
   wazakiss: [
     null,
+    {
+      username: {
+        family: 'HelveticaNeue',
+        url: helveticaNeue,
+        sizeMultiplier: 0.07,
+        maxWidth: 0.7,
+        xMultiplier: 0.32,
+        yMultiplier: 0.46,
+        textAlign: 'center',
+        letterSpacing: 40,
+      },
+    },
     {
       username: {
         family: 'HelveticaNeue',
