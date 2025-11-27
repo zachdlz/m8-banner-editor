@@ -28,10 +28,10 @@ const ARTISTS: Artist[] = [
     group: 'm8',
     externalLink: 'https://www.gentlemates.com',
     banners: [
-      { cover: m8_3Img, index: 3 },
-      { cover: m8_4Img, index: 4 },
       { cover: m8_1Img, index: 1 },
       { cover: m8_2Img, index: 2 },
+      { cover: m8_3Img, index: 3 },
+      { cover: m8_4Img, index: 4 },
     ],
     inputs: [
       { id: 'username', type: 'text', maxChars: 15 },

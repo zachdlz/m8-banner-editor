@@ -16,7 +16,7 @@ const App = () => {
   const [supporterLevel, setSupporterLevel] = useState('ultra');
   const [selectedBanner, setSelectedBanner] = useState<Banner>({
     group: 'm8',
-    index: 3,
+    index: 1,
   });
 
   const { handleDownload, handleCopy, getBannerUrl } = useImageUtils({
