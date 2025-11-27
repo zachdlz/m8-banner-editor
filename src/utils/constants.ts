@@ -3,10 +3,16 @@ import { type BannerFonts, type Artist } from './types';
 // import covers
 import m8_1Img from '../assets/images/covers/m8_1.png';
 import m8_2Img from '../assets/images/covers/m8_2.png';
+import m8_3Img from '../assets/images/covers/m8_3.png';
+import m8_4Img from '../assets/images/covers/m8_4.png';
+
 import zhaak1Img from '../assets/images/covers/zhaak_1.png';
 import zhaak2Img from '../assets/images/covers/zhaak_2.png';
+
 import juiceezImg from '../assets/images/covers/juiceez_1.png';
+
 import yutahImg from '../assets/images/covers/yutah_1.png';
+
 import wazakiss1Img from '../assets/images/covers/wazakiss_1.png';
 import wazakiss2Img from '../assets/images/covers/wazakiss_2.png';
 
@@ -24,6 +30,8 @@ const ARTISTS: Artist[] = [
     banners: [
       { cover: m8_1Img, index: 1 },
       { cover: m8_2Img, index: 2 },
+      { cover: m8_3Img, index: 3 },
+      { cover: m8_4Img, index: 4 },
     ],
     inputs: [
       { id: 'username', type: 'text', maxChars: 15 },
@@ -129,6 +137,48 @@ const BANNER_FONTS: BannerFonts = {
       role: {
         family: 'Helvetica',
         color: '#1e1d1e',
+        sizeMultiplier: 0.016,
+        maxWidth: 0.188,
+        xMultiplier: 0.795,
+        yMultiplier: 0.48,
+        textAlign: 'right',
+      },
+    },
+    {
+      username: {
+        family: 'TuskerGrotesk',
+        url: tuskerGrotesk,
+        color: '#ffffff',
+        sizeMultiplier: 0.045,
+        maxWidth: 0.206,
+        xMultiplier: 0.778,
+        yMultiplier: 0.34,
+        textAlign: 'right',
+      },
+      role: {
+        family: 'Helvetica',
+        color: '#ffffff',
+        sizeMultiplier: 0.016,
+        maxWidth: 0.188,
+        xMultiplier: 0.795,
+        yMultiplier: 0.48,
+        textAlign: 'right',
+      },
+    },
+    {
+      username: {
+        family: 'TuskerGrotesk',
+        url: tuskerGrotesk,
+        color: '#ffffff',
+        sizeMultiplier: 0.045,
+        maxWidth: 0.206,
+        xMultiplier: 0.778,
+        yMultiplier: 0.34,
+        textAlign: 'right',
+      },
+      role: {
+        family: 'Helvetica',
+        color: '#ffffff',
         sizeMultiplier: 0.016,
         maxWidth: 0.188,
         xMultiplier: 0.795,
