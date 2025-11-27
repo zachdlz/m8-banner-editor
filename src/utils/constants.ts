@@ -17,7 +17,7 @@ import wazakiss1Img from '../assets/images/covers/wazakiss_1.png';
 import wazakiss2Img from '../assets/images/covers/wazakiss_2.png';
 
 // import fonts
-import tuskerGrotesk from '../assets/fonts/TuskerGrotesk-4800Super.woff2';
+import tuskerGrotesk from '../assets/fonts/TuskerGrotesk-4700Bold.woff2';
 import dharmaGothic from '../assets/fonts/DharmaGothic.woff2';
 import futureFriends from '../assets/fonts/FutureFriends.ttf';
 import helveticaNeue from '../assets/fonts/HelveticaNeueLTProMdCn.otf';
