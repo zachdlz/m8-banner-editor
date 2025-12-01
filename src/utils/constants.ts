@@ -223,7 +223,7 @@ const BANNER_FONTS: BannerFonts = {
       username: {
         family: 'DharmaGothic',
         url: dharmaGothic,
-        color: '#FFFFFF',
+        color: '#d1d5e5',
         sizeMultiplier: 0.08,
         fixedSize: true,
         maxWidth: 0.32,
@@ -236,7 +236,7 @@ const BANNER_FONTS: BannerFonts = {
       username: {
         family: 'DharmaGothic',
         url: dharmaGothic,
-        color: '#FFFFFF',
+        color: '#d1d5e5',
         sizeMultiplier: 0.08,
         fixedSize: true,
         maxWidth: 0.32,
