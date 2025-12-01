@@ -229,7 +229,7 @@ const BANNER_FONTS: BannerFonts = {
         maxWidth: 0.32,
         xMultiplier: 0.66,
         yMultiplier: 0.5,
-        textAlign: 'left',
+        textAlign: 'center',
       },
     },
     {
