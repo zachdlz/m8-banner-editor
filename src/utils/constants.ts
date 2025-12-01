@@ -8,6 +8,8 @@ import m8_4Img from '../assets/images/covers/m8_4.png';
 
 import zhaak1Img from '../assets/images/covers/zhaak_1.png';
 import zhaak2Img from '../assets/images/covers/zhaak_2.png';
+import zhaak3Img from '../assets/images/covers/zhaak_3.png';
+import zhaak4Img from '../assets/images/covers/zhaak_4.png';
 
 import juiceezImg from '../assets/images/covers/juiceez_1.png';
 
@@ -55,6 +57,8 @@ const ARTISTS: Artist[] = [
     banners: [
       { cover: zhaak1Img, index: 1 },
       { cover: zhaak2Img, index: 2 },
+      { cover: zhaak3Img, index: 3 },
+      { cover: zhaak4Img, index: 4 },
     ],
   },
   {
@@ -213,6 +217,32 @@ const BANNER_FONTS: BannerFonts = {
         xMultiplier: 0.57,
         yMultiplier: 0.46,
         textAlign: 'right',
+      },
+    },
+    {
+      username: {
+        family: 'DharmaGothic',
+        url: dharmaGothic,
+        color: '#FFFFFF',
+        sizeMultiplier: 0.08,
+        fixedSize: true,
+        maxWidth: 0.32,
+        xMultiplier: 0.66,
+        yMultiplier: 0.5,
+        textAlign: 'left',
+      },
+    },
+    {
+      username: {
+        family: 'DharmaGothic',
+        url: dharmaGothic,
+        color: '#FFFFFF',
+        sizeMultiplier: 0.08,
+        fixedSize: true,
+        maxWidth: 0.32,
+        xMultiplier: 0.66,
+        yMultiplier: 0.5,
+        textAlign: 'center',
       },
     },
   ],
