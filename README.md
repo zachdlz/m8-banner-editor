@@ -21,5 +21,3 @@ Please refer to the [LICENSE.md](./LICENSE.md) file for details.
 - Website translation to EN
 - Migration to Next for SEO
 - Add themes 
-
-small-filled-discord small-filled-dribbble small-filled-facebook small-filled-github small-filled-gitlab small-filled-instagram small-filled-linkedin small-filled-medium small-filled-messenger small-filled-pinterest small-filled-quora small-filled-reddit small-filled-skype small-filled-spotify small-filled-telegram small-filled-tiktok small-filled-twitch small-filled-twitter small-filled-twitter-x small-filled-youtube
